@@ -18,6 +18,14 @@
 		876FCB5125F67A9B0096F519 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876FCB5025F67A9B0096F519 /* CustomHeaderView.swift */; };
 		876FCB5725F685290096F519 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876FCB5625F685290096F519 /* NetworkManager.swift */; };
 		87D2959325F78FFE00499BB4 /* Double+rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2959225F78FFE00499BB4 /* Double+rounded.swift */; };
+		AD35EF5A26258CBA005E7272 /* RestEndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD35EF5926258CBA005E7272 /* RestEndPointType.swift */; };
+		AD35EF5E26258D24005E7272 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD35EF5D26258D24005E7272 /* HTTPMethod.swift */; };
+		AD35EF652625B80E005E7272 /* CurrencyListCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD35EF642625B80E005E7272 /* CurrencyListCounter.swift */; };
+		AD35EF702625F210005E7272 /* CurrencyListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD35EF6F2625F210005E7272 /* CurrencyListConfigurator.swift */; };
+		AD35EF742625F290005E7272 /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD35EF732625F290005E7272 /* CurrencyListViewController.swift */; };
+		AD35EF772625F3B2005E7272 /* CurrencyListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD35EF762625F3B2005E7272 /* CurrencyListPresenter.swift */; };
+		AD35EF7A2625F949005E7272 /* CurrencyListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD35EF792625F949005E7272 /* CurrencyListInteractor.swift */; };
+		AD76C5F4262496C500DC4B47 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76C5F3262496C500DC4B47 /* EndPoint.swift */; };
 		E959B14925FA24E3007925E1 /* CoinsListTableViewController+NetworkManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E959B14825FA24E2007925E1 /* CoinsListTableViewController+NetworkManagerDelegate.swift */; };
 		E959B15425FA5D7B007925E1 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E959B15225FA5D7B007925E1 /* LoadingTableViewCell.swift */; };
 		E959B15525FA5D7B007925E1 /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E959B15325FA5D7B007925E1 /* LoadingTableViewCell.xib */; };
@@ -38,6 +46,14 @@
 		876FCB5025F67A9B0096F519 /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
 		876FCB5625F685290096F519 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		87D2959225F78FFE00499BB4 /* Double+rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+rounded.swift"; sourceTree = "<group>"; };
+		AD35EF5926258CBA005E7272 /* RestEndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestEndPointType.swift; sourceTree = "<group>"; };
+		AD35EF5D26258D24005E7272 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		AD35EF642625B80E005E7272 /* CurrencyListCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListCounter.swift; sourceTree = "<group>"; };
+		AD35EF6F2625F210005E7272 /* CurrencyListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListConfigurator.swift; sourceTree = "<group>"; };
+		AD35EF732625F290005E7272 /* CurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
+		AD35EF762625F3B2005E7272 /* CurrencyListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListPresenter.swift; sourceTree = "<group>"; };
+		AD35EF792625F949005E7272 /* CurrencyListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListInteractor.swift; sourceTree = "<group>"; };
+		AD76C5F3262496C500DC4B47 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		E959B14825FA24E2007925E1 /* CoinsListTableViewController+NetworkManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListTableViewController+NetworkManagerDelegate.swift"; sourceTree = "<group>"; };
 		E959B15225FA5D7B007925E1 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		E959B15325FA5D7B007925E1 /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
@@ -74,6 +90,7 @@
 		871D609F25F5235800F9EE94 /* Coins */ = {
 			isa = PBXGroup;
 			children = (
+				AD35EF6E2625F0CA005E7272 /* Modules */,
 				871D60BD25F5284600F9EE94 /* Views */,
 				871D60C725F5648600F9EE94 /* Models */,
 				E959B14B25FA2653007925E1 /* Managers */,
@@ -130,10 +147,49 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		E959B14B25FA2653007925E1 /* Managers */ = {
+		AD35EF5826258C7D005E7272 /* EndPointCommon */ = {
+			isa = PBXGroup;
+			children = (
+				AD35EF5926258CBA005E7272 /* RestEndPointType.swift */,
+				AD35EF5D26258D24005E7272 /* HTTPMethod.swift */,
+				AD35EF642625B80E005E7272 /* CurrencyListCounter.swift */,
+			);
+			path = EndPointCommon;
+			sourceTree = "<group>";
+		};
+		AD35EF6D2625F0BA005E7272 /* CurrencyList */ = {
+			isa = PBXGroup;
+			children = (
+				AD35EF732625F290005E7272 /* CurrencyListViewController.swift */,
+				AD35EF6F2625F210005E7272 /* CurrencyListConfigurator.swift */,
+				AD35EF762625F3B2005E7272 /* CurrencyListPresenter.swift */,
+				AD35EF792625F949005E7272 /* CurrencyListInteractor.swift */,
+			);
+			path = CurrencyList;
+			sourceTree = "<group>";
+		};
+		AD35EF6E2625F0CA005E7272 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				AD35EF6D2625F0BA005E7272 /* CurrencyList */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		AD76C5F22624925900DC4B47 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				876FCB5625F685290096F519 /* NetworkManager.swift */,
+				AD76C5F3262496C500DC4B47 /* EndPoint.swift */,
+				AD35EF5826258C7D005E7272 /* EndPointCommon */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E959B14B25FA2653007925E1 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				AD76C5F22624925900DC4B47 /* Network */,
 				E95FC71425F8F16B00470A38 /* ViewCreator.swift */,
 			);
 			path = Managers;
@@ -228,17 +284,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD76C5F4262496C500DC4B47 /* EndPoint.swift in Sources */,
+				AD35EF7A2625F949005E7272 /* CurrencyListInteractor.swift in Sources */,
 				871D60C525F5648200F9EE94 /* JSONModel.swift in Sources */,
 				876FCB5125F67A9B0096F519 /* CustomHeaderView.swift in Sources */,
 				E959B15425FA5D7B007925E1 /* LoadingTableViewCell.swift in Sources */,
+				AD35EF772625F3B2005E7272 /* CurrencyListPresenter.swift in Sources */,
+				AD35EF742625F290005E7272 /* CurrencyListViewController.swift in Sources */,
+				AD35EF5A26258CBA005E7272 /* RestEndPointType.swift in Sources */,
 				871D60A125F5235800F9EE94 /* AppDelegate.swift in Sources */,
 				871D60A325F5235800F9EE94 /* SceneDelegate.swift in Sources */,
 				E95FC71525F8F16B00470A38 /* ViewCreator.swift in Sources */,
+				AD35EF5E26258D24005E7272 /* HTTPMethod.swift in Sources */,
 				E959B14925FA24E3007925E1 /* CoinsListTableViewController+NetworkManagerDelegate.swift in Sources */,
 				87D2959325F78FFE00499BB4 /* Double+rounded.swift in Sources */,
+				AD35EF652625B80E005E7272 /* CurrencyListCounter.swift in Sources */,
 				876FCB5725F685290096F519 /* NetworkManager.swift in Sources */,
 				871D60CA25F5665900F9EE94 /* UIView+Constraints.swift in Sources */,
 				871D60C225F55EF900F9EE94 /* CustomTableViewCell.swift in Sources */,
+				AD35EF702625F210005E7272 /* CurrencyListConfigurator.swift in Sources */,
 				871D60B725F5250C00F9EE94 /* CoinsListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
