@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol CurrencyListConfiguratorProtocol: class {
-    func configure(with viewController: CurrencyListViewController)
-}
-
 class CurrencyListConfigurator: CurrencyListConfiguratorProtocol {
     
     func configure(with viewController: CurrencyListViewController) {
