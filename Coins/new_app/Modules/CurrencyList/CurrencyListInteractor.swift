@@ -9,7 +9,9 @@ import Foundation
 
 protocol CurrencyListInteractorProtocol: class {
     var endPoint: EndPoint { get }
+//    var currencies: CurrencyList? { get }
     func openUrl(with urlString: String)
+    func networking()
 }
 
 class CurrencyListInteractor: CurrencyListInteractorProtocol {
@@ -24,7 +26,41 @@ class CurrencyListInteractor: CurrencyListInteractorProtocol {
         return EndPoint.loadLatestMarketData
     }
     
+//    var currencies: CurrencyList?
+    
     func openUrl(with urlString: String) {
         
     }
+    
+    func networking() {
+                let network = NetworkManager()
+                network.delegate = self
+        
+                network.newFetchCurrencies(with: .firstLoad)
+    }
+}
+
+// MARK: - NetworkManagerDelegate
+
+extension CurrencyListInteractor: NetworkManagerDelegate {
+    func firstLoad(_: NetworkManager, data: CurrencyList?) {
+        guard let parsedModel = data else { return }
+//        self.currencies = parsedModel
+//        self.presenter.currencies = parsedModel
+        self.presenter.currenciesDidReceive(parsedModel)
+    }
+    
+    func scrollLoad(_: NetworkManager, data: CurrencyList?) {
+        guard let parsedModel = data else { return }
+//        self.currencies = parsedModel
+        print(parsedModel)
+    }
+    
+    func refreshLoad(_: NetworkManager, data: CurrencyList?) {
+        guard let parsedModel = data else { return }
+//        self.currencies = parsedModel
+        print(parsedModel)
+    }
+    
+    
 }

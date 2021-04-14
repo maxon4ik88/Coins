@@ -18,11 +18,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
  
-        let coinsList = CoinsListTableViewController(style: .plain)
-        let navigationController = UINavigationController(rootViewController: coinsList)
+//        let coinsList = CoinsListTableViewController(style: .plain)
+        let newCoinsList = CurrencyListViewController()
+        
+        let newNavigationController = UINavigationController(rootViewController: newCoinsList)
+//        let navigationController = UINavigationController(rootViewController: coinsList)
         
         window?.makeKeyAndVisible()
-        window?.rootViewController = navigationController
+        window?.rootViewController = newNavigationController
         
     }
 
