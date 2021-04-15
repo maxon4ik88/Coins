@@ -41,7 +41,7 @@ extension EndPoint {
 extension EndPoint: RestEndPointType {
     
     var scheme: String {
-        "https"
+        "https://"
     }
     
     var host: String {

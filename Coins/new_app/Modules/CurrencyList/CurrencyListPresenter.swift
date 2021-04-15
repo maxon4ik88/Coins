@@ -19,6 +19,7 @@ class CurrencyListPresenter: CurrencyListPresenterProtocol {
     var currencies: CurrencyList?
     
     func configureView() {
+        
         interactor.networking()
         view.setupTableView()
     }

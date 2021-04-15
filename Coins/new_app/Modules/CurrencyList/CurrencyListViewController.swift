@@ -27,6 +27,7 @@ class CurrencyListViewController: UIViewController, CurrencyListViewProtocol {
 // MARK: - TableView ReloadData
 
 extension CurrencyListViewController {
+    
     func updateCells(_ currencies: CurrencyList) {
         self.currencies = currencies
         mainTableView.reloadData()

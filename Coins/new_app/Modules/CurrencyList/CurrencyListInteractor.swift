@@ -16,10 +16,11 @@ class CurrencyListInteractor: CurrencyListInteractorProtocol {
     }
     
     func networking() {
-        let network = NetworkManager()
+        
+        let network = NetworkService(with: .firstLoad)
         network.delegate = self
         
-        network.newFetchCurrencies(with: .firstLoad)
+        network.startTask()
     }
 }
 
@@ -42,4 +43,23 @@ extension CurrencyListInteractor: NetworkManagerDelegate {
     }
     
     
+}
+
+// MARK: - SessionManagerDelegate
+
+extension CurrencyListInteractor: SessionManagerDelegate {
+    func firstLoad(_: SessionManager, data: CurrencyList?) {
+        guard let parsedModel = data else { return }
+        self.presenter.currenciesDidReceive(parsedModel)
+    }
+    
+    func scrollLoad(_: SessionManager, data: CurrencyList?) {
+        guard let parsedModel = data else { return }
+        print(parsedModel)
+    }
+    
+    func refreshLoad(_: SessionManager, data: CurrencyList?) {
+        guard let parsedModel = data else { return }
+        print(parsedModel)
+    }
 }

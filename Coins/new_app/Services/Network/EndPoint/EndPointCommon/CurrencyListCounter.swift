@@ -24,10 +24,13 @@ class CurrencyListCounter {
     }
     
     var limit: Int {
-        if iteration == 1 {
-            count += 30
+        switch iteration {
+        case 1:
             return 30
-        } else {
+        case 2:
+            count += 30
+            return 10
+        default:
             count += 10
             return 10
         }
