@@ -24,27 +24,6 @@ class CurrencyListInteractor: CurrencyListInteractorProtocol {
     }
 }
 
-// MARK: - NetworkManagerDelegate
-
-extension CurrencyListInteractor: NetworkManagerDelegate {
-    func firstLoad(_: NetworkManager, data: CurrencyList?) {
-        guard let parsedModel = data else { return }
-        self.presenter.currenciesDidReceive(parsedModel)
-    }
-    
-    func scrollLoad(_: NetworkManager, data: CurrencyList?) {
-        guard let parsedModel = data else { return }
-        print(parsedModel)
-    }
-    
-    func refreshLoad(_: NetworkManager, data: CurrencyList?) {
-        guard let parsedModel = data else { return }
-        print(parsedModel)
-    }
-    
-    
-}
-
 // MARK: - SessionManagerDelegate
 
 extension CurrencyListInteractor: SessionManagerDelegate {
@@ -63,3 +42,41 @@ extension CurrencyListInteractor: SessionManagerDelegate {
         print(parsedModel)
     }
 }
+
+
+//extension CoinsListTableViewController: NetworkManagerDelegate {
+//    
+//    func firstLoad(_: NetworkManager, data: CurrencyList?) {
+//        guard let parsedModel = data else { return }
+//        
+//        self.currencyList = parsedModel
+//        
+//        self.isFetching = false
+//        
+//        self.tableView.reloadData()
+//    }
+//    
+//    func scrollLoad(_: NetworkManager, data: CurrencyList?) {
+//        guard let parsedModel = data else { return }
+//        guard let models = parsedModel.data else { return }
+//        
+//        self.currencyList?.data! += models
+//        
+//        self.isFetching = false
+//        
+//        self.tableView.reloadData()
+//    }
+//    
+//    func refreshLoad(_: NetworkManager, data: CurrencyList?) {
+//        guard let parsedModel = data else { return }
+//        
+//        self.currencyList = parsedModel
+//        
+//        self.isFetching = false
+//        
+//        self.refreshControl?.endRefreshing()
+//        
+//        self.tableView.reloadData()
+//    }
+//    
+//}

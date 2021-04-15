@@ -16,7 +16,6 @@
 		871D60C525F5648200F9EE94 /* JSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D60C425F5648200F9EE94 /* JSONModel.swift */; };
 		871D60CA25F5665900F9EE94 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D60C925F5665900F9EE94 /* UIView+Constraints.swift */; };
 		876FCB5125F67A9B0096F519 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876FCB5025F67A9B0096F519 /* CustomHeaderView.swift */; };
-		876FCB5725F685290096F519 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876FCB5625F685290096F519 /* NetworkManager.swift */; };
 		87D2959325F78FFE00499BB4 /* Double+rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2959225F78FFE00499BB4 /* Double+rounded.swift */; };
 		AD092064262731E8006A273D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AD092063262731E8006A273D /* .gitignore */; };
 		AD35EF5A26258CBA005E7272 /* RestEndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD35EF5926258CBA005E7272 /* RestEndPointType.swift */; };
@@ -44,7 +43,6 @@
 		AD754F3A2628300100EA8239 /* SessionManager+SessionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD754F392628300100EA8239 /* SessionManager+SessionType.swift */; };
 		AD754F3D262832D800EA8239 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD754F3C262832D800EA8239 /* NetworkService.swift */; };
 		AD76C5F4262496C500DC4B47 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76C5F3262496C500DC4B47 /* EndPoint.swift */; };
-		E959B14925FA24E3007925E1 /* CoinsListTableViewController+NetworkManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E959B14825FA24E2007925E1 /* CoinsListTableViewController+NetworkManagerDelegate.swift */; };
 		E959B15425FA5D7B007925E1 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E959B15225FA5D7B007925E1 /* LoadingTableViewCell.swift */; };
 		E959B15525FA5D7B007925E1 /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E959B15325FA5D7B007925E1 /* LoadingTableViewCell.xib */; };
 		E95FC71525F8F16B00470A38 /* ViewCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FC71425F8F16B00470A38 /* ViewCreator.swift */; };
@@ -63,7 +61,6 @@
 		871D60C425F5648200F9EE94 /* JSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModel.swift; sourceTree = "<group>"; };
 		871D60C925F5665900F9EE94 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		876FCB5025F67A9B0096F519 /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
-		876FCB5625F685290096F519 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		87D2959225F78FFE00499BB4 /* Double+rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+rounded.swift"; sourceTree = "<group>"; };
 		AD092063262731E8006A273D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		AD35EF5926258CBA005E7272 /* RestEndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestEndPointType.swift; sourceTree = "<group>"; };
@@ -91,7 +88,6 @@
 		AD754F392628300100EA8239 /* SessionManager+SessionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SessionManager+SessionType.swift"; sourceTree = "<group>"; };
 		AD754F3C262832D800EA8239 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		AD76C5F3262496C500DC4B47 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
-		E959B14825FA24E2007925E1 /* CoinsListTableViewController+NetworkManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListTableViewController+NetworkManagerDelegate.swift"; sourceTree = "<group>"; };
 		E959B15225FA5D7B007925E1 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		E959B15325FA5D7B007925E1 /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
 		E95FC71425F8F16B00470A38 /* ViewCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCreator.swift; sourceTree = "<group>"; };
@@ -131,9 +127,6 @@
 			children = (
 				E99ED9A62626373300881C7E /* new_app */,
 				AD35EF8F26272E80005E7272 /* old_app */,
-				871D60BB25F5281D00F9EE94 /* Delegates */,
-				871D60C725F5648600F9EE94 /* Models */,
-				871D60BC25F5283100F9EE94 /* Etc */,
 			);
 			path = Coins;
 			sourceTree = "<group>";
@@ -179,7 +172,6 @@
 			children = (
 				871D60C925F5665900F9EE94 /* UIView+Constraints.swift */,
 				87D2959225F78FFE00499BB4 /* Double+rounded.swift */,
-				E959B14825FA24E2007925E1 /* CoinsListTableViewController+NetworkManagerDelegate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -236,7 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				871D60BD25F5284600F9EE94 /* Views */,
-				E959B14B25FA2653007925E1 /* Managers */,
 				876FCB5425F684920096F519 /* Extensions */,
 			);
 			path = old_app;
@@ -266,6 +257,7 @@
 		AD4F455726274EE3009BB030 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E95FC71425F8F16B00470A38 /* ViewCreator.swift */,
 				AD754F3C262832D800EA8239 /* NetworkService.swift */,
 				AD4F455A26274F39009BB030 /* Network */,
 			);
@@ -310,23 +302,6 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		AD76C5F22624925900DC4B47 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				876FCB5625F685290096F519 /* NetworkManager.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		E959B14B25FA2653007925E1 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				AD76C5F22624925900DC4B47 /* Network */,
-				E95FC71425F8F16B00470A38 /* ViewCreator.swift */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
 		E959B14E25FA268C007925E1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,9 +314,12 @@
 			isa = PBXGroup;
 			children = (
 				AD35EF6E2625F0CA005E7272 /* Modules */,
-				E99ED9A82626376000881C7E /* ViewModels */,
 				AD4F455726274EE3009BB030 /* Services */,
 				AD4F455326274D88009BB030 /* Extensions */,
+				E99ED9A82626376000881C7E /* ViewModels */,
+				871D60C725F5648600F9EE94 /* Models */,
+				871D60BB25F5281D00F9EE94 /* Delegates */,
+				871D60BC25F5283100F9EE94 /* Etc */,
 			);
 			path = new_app;
 			sourceTree = "<group>";
@@ -472,11 +450,9 @@
 				AD35EF5E26258D24005E7272 /* HTTPMethod.swift in Sources */,
 				AD35EF7F2626CE83005E7272 /* CurrencyCellModel.swift in Sources */,
 				E99ED9AB2626385200881C7E /* BaseCellModel.swift in Sources */,
-				E959B14925FA24E3007925E1 /* CoinsListTableViewController+NetworkManagerDelegate.swift in Sources */,
 				87D2959325F78FFE00499BB4 /* Double+rounded.swift in Sources */,
 				AD4F455526274DEB009BB030 /* CurrencyListViewController+UITableViewDataSource.swift in Sources */,
 				AD35EF652625B80E005E7272 /* CurrencyListCounter.swift in Sources */,
-				876FCB5725F685290096F519 /* NetworkManager.swift in Sources */,
 				AD754F2D26282CD200EA8239 /* JSONManager.swift in Sources */,
 				AD4F455126274C38009BB030 /* CurrencyListViewProtocol.swift in Sources */,
 				871D60CA25F5665900F9EE94 /* UIView+Constraints.swift in Sources */,
@@ -624,7 +600,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3S7282465J;
-				INFOPLIST_FILE = Coins/Etc/Info.plist;
+				INFOPLIST_FILE = Coins/new_app/Etc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -644,7 +620,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3S7282465J;
-				INFOPLIST_FILE = Coins/Etc/Info.plist;
+				INFOPLIST_FILE = Coins/new_app/Etc/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -9,7 +9,7 @@ import UIKit
 
 class CoinsListTableViewController: UITableViewController {
     
-    let network = NetworkManager()
+//    let network = NetworkManager()
     
     var currencyList: CurrencyList?
     
@@ -20,8 +20,8 @@ class CoinsListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        network.delegate = self
-        network.fetchCurrencies(with: .firstLoad)
+//        network.delegate = self
+//        network.fetchCurrencies(with: .firstLoad)
         
         setupRefreshControl()
         cellInitialize()
@@ -81,7 +81,7 @@ class CoinsListTableViewController: UITableViewController {
         
         if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height) && !isFetching {
             isFetching.toggle()
-            network.fetchCurrencies(with: .scrollLoad)
+//            network.fetchCurrencies(with: .scrollLoad)
         }
     }
     
@@ -94,7 +94,7 @@ class CoinsListTableViewController: UITableViewController {
     }
     
     @objc private func updateData() {
-        network.fetchCurrencies(with: .updateData)
+//        network.fetchCurrencies(with: .updateData)
     }
     
     // MARK: - TableView cell init
