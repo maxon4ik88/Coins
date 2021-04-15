@@ -42,8 +42,10 @@ extension CurrencyListViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let currencies = currencies, let data = currencies.data, indexPath.section == 0 else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath) as! LoadingTableViewCell
-            cell.activityIndicator.startAnimating()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as! CurrencyLoadCell
+            let model = LoadCellModel()
+            cell.model = model
+//            cell.activityIndicator.startAnimating()
             return cell
         }
         

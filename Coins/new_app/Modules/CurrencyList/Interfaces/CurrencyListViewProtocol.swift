@@ -14,6 +14,6 @@ protocol CurrencyListViewProtocol: class {
     func setupTableView()
     func firstLoadCells(_ currencies: CurrencyList)
     func updateCells(_ currencies: CurrencyList)
-    func scrollLoadCells(_ curriencies: [CurrencyData]?)
+    func scrollLoadCells(_ newCurriencies: CurrencyList)
     func setupRefreshControl()
 }

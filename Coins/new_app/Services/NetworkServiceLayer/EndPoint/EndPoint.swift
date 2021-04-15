@@ -29,7 +29,7 @@ extension EndPoint {
     }
     
     private var apiKey: String {
-        return "b8565320-570b-45eb-80e2-e2979631db68"
+        return "e3e9c128-89cf-4b3b-8b72-bf639e911045"
     }
     
     private var counter: CurrencyListCounter {

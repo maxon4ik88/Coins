@@ -15,11 +15,12 @@ class CurrencyCellModel: BaseCellModel {
     
     var currencyName: String
     var currencyPrice: String
-    var currencyPriceChanging: String
+    var currencyPriceChanging: Double
     
     init(_ currency: CurrencyData?) {
         currencyName = currency?.name ?? "no_data"
-        currencyPrice = "\(currency?.quote?.usd?.price ?? 0)"
-        currencyPriceChanging = "\(currency?.quote?.usd?.percentChange1H ?? 0)"
+        currencyPrice = "\(currency?.quote?.usd?.price?.rounded(to: 2) ?? 0)$"
+        currencyPriceChanging = currency?.quote?.usd?.percentChange1H ?? 0
     }
 }
+

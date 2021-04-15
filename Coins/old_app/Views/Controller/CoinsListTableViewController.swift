@@ -60,20 +60,20 @@ class CoinsListTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//        guard let currencyList = currencyList, let data = currencyList.data, indexPath.section == 0 else {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath) as! LoadingTableViewCell
+//            cell.activityIndicator.startAnimating()
+//            return cell
+//        }
+//
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomTableViewCell
         
-        guard let currencyList = currencyList, let data = currencyList.data, indexPath.section == 0 else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath) as! LoadingTableViewCell
-            cell.activityIndicator.startAnimating()
-            return cell
-        }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomTableViewCell
-        
-        cell.unit = data[indexPath.row]
-        
-        return cell
-    }
+//        cell.unit = data[indexPath.row]
+//
+//        return cell
+//    }
     
     // MARK: - Scrolling
     
@@ -103,7 +103,7 @@ class CoinsListTableViewController: UITableViewController {
         let tableViewLoadingCellNib = UINib(nibName: "LoadingTableViewCell", bundle: nil)
         tableView.register(tableViewLoadingCellNib, forCellReuseIdentifier: "loadingCell")
         
-        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "customCell")
+//        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "customCell")
         tableView.rowHeight = 44
     }
 }

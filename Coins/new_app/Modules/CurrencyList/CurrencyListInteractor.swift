@@ -28,11 +28,13 @@ class CurrencyListInteractor: CurrencyListInteractorProtocol {
 extension CurrencyListInteractor: SessionManagerDelegate {
     func firstLoad(_: SessionManager, data: CurrencyList?) {
         guard let parsedModel = data else { return }
+        print("INTERACTOR(firstLoad): Models count is - \(parsedModel.data?.count ?? -1)")
         self.presenter.currenciesDidReceive(parsedModel, with: .firstLoad)
     }
     
     func scrollLoad(_: SessionManager, data: CurrencyList?) {
         guard let parsedModel = data else { return }
+        print("INTERACTOR(scrollLoad): Models count is - \(parsedModel.data?.count ?? -1)")
         self.presenter.currenciesDidReceive(parsedModel, with: .scrollLoad)
     }
     

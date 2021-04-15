@@ -34,6 +34,7 @@ extension CurrencyListViewController {
     func firstLoadCells(_ currencies: CurrencyList) {
         self.currencies = currencies
         mainTableView.reloadData()
+        print("VIEW(firstLoadCells_method): Currencies_count is - \(currencies.data?.count ?? -1)")
     }
 }
 
@@ -45,6 +46,7 @@ extension CurrencyListViewController {
         self.currencies = currencies
         refreshControl.endRefreshing()
         mainTableView.reloadData()
+        print("VIEW(updateCells_method): Currencies_count is - \(currencies.data?.count ?? -1)")
     }
 }
 
@@ -52,11 +54,13 @@ extension CurrencyListViewController {
 
 extension CurrencyListViewController {
     
-    func scrollLoadCells(_ curriencies: [CurrencyData]?) {
-        guard let models = currencies?.data else { return }
-        self.currencies?.data! += models
+    func scrollLoadCells(_ newCurriencies: CurrencyList) {
+        print("VIEW(scrollLoadCells_method): input_Curriencies_count is - \(newCurriencies.data?.count ?? 0)")
+        guard let models = newCurriencies.data else { return }
+        currencies?.data! += models
         isFetching = false
         mainTableView.reloadData()
+        print("VIEW(scrollLoadCells_method): Currencies_count is - \(currencies?.data?.count ?? -1)")
     }
 }
 
@@ -98,9 +102,7 @@ extension CurrencyListViewController {
         mainTableView.delegate = self
         mainTableView.dataSource = self
         
-        let tableViewLoadingCellNib = UINib(nibName: "LoadingTableViewCell", bundle: nil)
-        mainTableView.register(tableViewLoadingCellNib, forCellReuseIdentifier: "loadingCell")
-        
+        mainTableView.register(CurrencyLoadCell.self, forCellReuseIdentifier: "LoadingCell")
         mainTableView.register(CurrencyMainCell.self, forCellReuseIdentifier: "CurrencyCell")
         
         view.addSubview(mainTableView)

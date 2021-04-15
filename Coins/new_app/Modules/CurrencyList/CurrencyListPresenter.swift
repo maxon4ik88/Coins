@@ -19,7 +19,7 @@ class CurrencyListPresenter: CurrencyListPresenterProtocol {
     }
     
     func updateViewCells() {
-        counter.isUpdate = true
+        counter.loadType = .update
         interactor.networking(with: .updateData)
     }
     
@@ -31,7 +31,7 @@ class CurrencyListPresenter: CurrencyListPresenterProtocol {
     }
     
     func scrollLoadViewCells() {
-        counter.isUpdate = false
+        counter.loadType = .scrollLoad
         interactor.networking(with: .scrollLoad)
     }
     
@@ -40,11 +40,14 @@ class CurrencyListPresenter: CurrencyListPresenterProtocol {
         switch type {
         case .firstLoad:
             view.firstLoadCells(currencies)
+            print("IN_PRESENTOR(FirstLoad): Cells count is - \(currencies.data?.count ?? -1)")
         case .scrollLoad:
-            guard let models = currencies.data else { return }
-            view.scrollLoadCells(models)
+//            guard let models = currencies.data else { return }
+            view.scrollLoadCells(currencies)
+            print("IN_PRESENTOR(ScrollLoad): Cells count is - \(currencies.data?.count ?? -1)")
         case .updateData:
             view.updateCells(currencies)
+            print("IN_PRESENTOR(UpdateData): Cells count is - \(currencies.data?.count ?? -1)")
         }
     }
 }

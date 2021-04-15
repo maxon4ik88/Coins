@@ -25,8 +25,20 @@ class CurrencyMainCell: CurrencyBaseCell {
         guard let model = model as? CurrencyCellModel else { return }
         
         nameLabel.text = model.currencyName
+        nameLabel.numberOfLines = (nameLabel.text?.filter({ $0 == " " }).count)! + 1
         priceLabel.text = model.currencyPrice
-        changesLabel.text = model.currencyPriceChanging
+        
+        switch model.currencyPriceChanging {
+        case _ where model.currencyPriceChanging > 0:
+            changesLabel.text = "+\(model.currencyPriceChanging.rounded(to: 2))%"
+            changesLabel.textColor = .systemGreen
+        case _ where model.currencyPriceChanging < 0:
+            changesLabel.text = "\(model.currencyPriceChanging.rounded(to: 2))%"
+            changesLabel.textColor = .systemRed
+        default:
+            changesLabel.text = "\(model.currencyPriceChanging.rounded(to: 2))%"
+            changesLabel.textColor = .systemGray
+        }
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
