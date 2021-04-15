@@ -16,7 +16,6 @@ class NetworkService {
     private let request: URLRequest
     private let jsonManager: JSONManager
     private let sessionManager: SessionManager
-//    private var counter = CurrencyListCounter.shared
     
     weak var delegate: SessionManagerDelegate? {
         didSet {
@@ -36,7 +35,6 @@ class NetworkService {
         request = requestManager.request
         jsonManager = JSONManager()
         sessionManager = SessionManager(request: request, type: task, JSONManager: jsonManager)
-//        task == .updateData ? (counter.isUpdate = true) : (counter.isUpdate = false)
     }
     
     init(data: EndPoint, with task: SessionManager.SessionType) {

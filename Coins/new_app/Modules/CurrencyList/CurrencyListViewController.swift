@@ -86,15 +86,6 @@ extension CurrencyListViewController {
     }
 }
 
-//override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//    
-//    if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height) && !isFetching {
-//        isFetching.toggle()
-////            network.fetchCurrencies(with: .scrollLoad)
-//    }
-//}
-
-
 // MARK: - Setup TableView in controller
 
 extension CurrencyListViewController {
