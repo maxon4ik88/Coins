@@ -8,10 +8,13 @@
 import UIKit
 
 class CurrencyListViewController: UIViewController, CurrencyListViewProtocol {
+
+    private var refreshControl: UIRefreshControl!
+    var isFetching = false
     
     var mainTableView: UITableView!
     var currencies: CurrencyList?
-
+    
     var presenter: CurrencyListPresenterProtocol!
     let configurator: CurrencyListConfiguratorProtocol = CurrencyListConfigurator()
     
@@ -24,15 +27,73 @@ class CurrencyListViewController: UIViewController, CurrencyListViewProtocol {
     
 }
 
-// MARK: - TableView ReloadData
+// MARK: - FirstLoadCells
+
+extension CurrencyListViewController {
+    
+    func firstLoadCells(_ currencies: CurrencyList) {
+        self.currencies = currencies
+        mainTableView.reloadData()
+    }
+}
+
+// MARK: - UpdateCells
 
 extension CurrencyListViewController {
     
     func updateCells(_ currencies: CurrencyList) {
         self.currencies = currencies
+        refreshControl.endRefreshing()
         mainTableView.reloadData()
     }
 }
+
+// MARK: - ScrollLoadCells
+
+extension CurrencyListViewController {
+    
+    func scrollLoadCells(_ curriencies: [CurrencyData]?) {
+        guard let models = currencies?.data else { return }
+        self.currencies?.data! += models
+        isFetching = false
+        mainTableView.reloadData()
+    }
+}
+
+// MARK: -  SetupRefreshControl
+
+extension CurrencyListViewController {
+    
+    func setupRefreshControl() {
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(updateData), for: .valueChanged)
+        mainTableView.addSubview(refreshControl)
+    }
+    
+    @objc private func updateData() {
+        presenter.updateViewCells()
+    }
+}
+
+// MARK: - SetupScrolling
+
+extension CurrencyListViewController {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height) && !isFetching {
+            isFetching.toggle()
+            presenter.scrollLoadViewCells()
+        }
+    }
+}
+
+//override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//    
+//    if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height) && !isFetching {
+//        isFetching.toggle()
+////            network.fetchCurrencies(with: .scrollLoad)
+//    }
+//}
+
 
 // MARK: - Setup TableView in controller
 
@@ -48,11 +109,11 @@ extension CurrencyListViewController {
         
         let tableViewLoadingCellNib = UINib(nibName: "LoadingTableViewCell", bundle: nil)
         mainTableView.register(tableViewLoadingCellNib, forCellReuseIdentifier: "loadingCell")
-
+        
         mainTableView.register(CurrencyMainCell.self, forCellReuseIdentifier: "CurrencyCell")
-
+        
         view.addSubview(mainTableView)
-
+        
         NSLayoutConstraint.activate([
             mainTableView.topAnchor.constraint(equalTo: self.view.topAnchor),
             mainTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),

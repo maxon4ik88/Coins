@@ -9,5 +9,7 @@ import Foundation
 
 protocol CurrencyListPresenterProtocol: class {
     func configureView()
-    func currenciesDidReceive(_ currencies: CurrencyList)
+    func updateViewCells()
+    func scrollLoadViewCells()
+    func currenciesDidReceive(_ currencies: CurrencyList, with type: SessionManager.SessionType)
 }

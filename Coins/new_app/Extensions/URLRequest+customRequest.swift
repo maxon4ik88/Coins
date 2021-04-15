@@ -10,6 +10,8 @@ import Foundation
 extension URLRequest {
     
     static func customRequest(endPointManager: EndPointManager) -> URLRequest {
+        
+        print("IN URLRequestEXTENSION: \(endPointManager.url)")
 
         guard let url = URL(string: endPointManager.url) else {
             

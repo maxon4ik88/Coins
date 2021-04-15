@@ -167,15 +167,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		876FCB5425F684920096F519 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				871D60C925F5665900F9EE94 /* UIView+Constraints.swift */,
-				87D2959225F78FFE00499BB4 /* Double+rounded.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		AD35EF5826258C7D005E7272 /* EndPointCommon */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				871D60BD25F5284600F9EE94 /* Views */,
-				876FCB5425F684920096F519 /* Extensions */,
 			);
 			path = old_app;
 			sourceTree = "<group>";
@@ -250,6 +240,8 @@
 				AD4F455426274DEB009BB030 /* CurrencyListViewController+UITableViewDataSource.swift */,
 				AD754F252628277700EA8239 /* URLRequest+customRequest.swift */,
 				AD754F392628300100EA8239 /* SessionManager+SessionType.swift */,
+				871D60C925F5665900F9EE94 /* UIView+Constraints.swift */,
+				87D2959225F78FFE00499BB4 /* Double+rounded.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -259,19 +251,19 @@
 			children = (
 				E95FC71425F8F16B00470A38 /* ViewCreator.swift */,
 				AD754F3C262832D800EA8239 /* NetworkService.swift */,
-				AD4F455A26274F39009BB030 /* Network */,
+				AD4F455A26274F39009BB030 /* NetworkServiceLayer */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		AD4F455A26274F39009BB030 /* Network */ = {
+		AD4F455A26274F39009BB030 /* NetworkServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
 				AD754F40262835D500EA8239 /* Managers */,
 				AD754F3426282E4700EA8239 /* Interfaces */,
 				AD4F4560262755D8009BB030 /* EndPoint */,
 			);
-			path = Network;
+			path = NetworkServiceLayer;
 			sourceTree = "<group>";
 		};
 		AD4F4560262755D8009BB030 /* EndPoint */ = {

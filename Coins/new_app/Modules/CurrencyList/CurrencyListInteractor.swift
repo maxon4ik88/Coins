@@ -15,11 +15,10 @@ class CurrencyListInteractor: CurrencyListInteractorProtocol {
         self.presenter = presenter
     }
     
-    func networking() {
+    func networking(with type: SessionManager.SessionType) {
         
-        let network = NetworkService(with: .firstLoad)
+        let network = NetworkService(with: type)
         network.delegate = self
-        
         network.startTask()
     }
 }
@@ -29,19 +28,30 @@ class CurrencyListInteractor: CurrencyListInteractorProtocol {
 extension CurrencyListInteractor: SessionManagerDelegate {
     func firstLoad(_: SessionManager, data: CurrencyList?) {
         guard let parsedModel = data else { return }
-        self.presenter.currenciesDidReceive(parsedModel)
+        self.presenter.currenciesDidReceive(parsedModel, with: .firstLoad)
     }
     
     func scrollLoad(_: SessionManager, data: CurrencyList?) {
         guard let parsedModel = data else { return }
-        print(parsedModel)
+        self.presenter.currenciesDidReceive(parsedModel, with: .scrollLoad)
     }
     
     func refreshLoad(_: SessionManager, data: CurrencyList?) {
         guard let parsedModel = data else { return }
-        print(parsedModel)
+        self.presenter.currenciesDidReceive(parsedModel, with: .updateData)
     }
 }
+
+//    func scrollLoad(_: NetworkManager, data: CurrencyList?) {
+//        guard let parsedModel = data else { return }
+//        guard let models = parsedModel.data else { return }
+//
+//        self.currencyList?.data! += models
+//
+//        self.isFetching = false
+//
+//        self.tableView.reloadData()
+//    }
 
 
 //extension CoinsListTableViewController: NetworkManagerDelegate {

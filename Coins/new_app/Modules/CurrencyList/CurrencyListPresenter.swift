@@ -9,6 +9,8 @@ import Foundation
 
 class CurrencyListPresenter: CurrencyListPresenterProtocol {
     
+    private let counter = CurrencyListCounter.shared
+    
     weak var view: CurrencyListViewProtocol!
     var interactor: CurrencyListInteractorProtocol!
     
@@ -16,16 +18,33 @@ class CurrencyListPresenter: CurrencyListPresenterProtocol {
         self.view = view
     }
     
-    var currencies: CurrencyList?
+    func updateViewCells() {
+        counter.isUpdate = true
+        interactor.networking(with: .updateData)
+    }
     
     func configureView() {
         
-        interactor.networking()
+        interactor.networking(with: .firstLoad)
         view.setupTableView()
+        view.setupRefreshControl()
     }
     
-    func currenciesDidReceive(_ currencies: CurrencyList) {
+    func scrollLoadViewCells() {
+        counter.isUpdate = false
+        interactor.networking(with: .scrollLoad)
+    }
+    
+    func currenciesDidReceive(_ currencies: CurrencyList, with type: SessionManager.SessionType) {
         
-        view.updateCells(currencies)
+        switch type {
+        case .firstLoad:
+            view.firstLoadCells(currencies)
+        case .scrollLoad:
+            guard let models = currencies.data else { return }
+            view.scrollLoadCells(models)
+        case .updateData:
+            view.updateCells(currencies)
+        }
     }
 }
