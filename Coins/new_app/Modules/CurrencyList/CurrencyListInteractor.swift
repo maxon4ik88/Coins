@@ -18,7 +18,7 @@ class CurrencyListInteractor: CurrencyListInteractorProtocol {
     }
     
     // MARK: - CurrencyListInteractorProtocol
-    func networking(with type: SessionManager.SessionType) {
+    func downloadCurrencies(with type: SessionManager.SessionType) {
         let network = NetworkService(with: type)
         network.delegate = self
         network.startTask()
@@ -27,18 +27,18 @@ class CurrencyListInteractor: CurrencyListInteractorProtocol {
 
 // MARK: - SessionManagerDelegate
 extension CurrencyListInteractor: SessionManagerDelegate {
-    func firstLoad(_: SessionManager, data: CurrencyList?) {
-        guard let parsedModel = data else { return }
-        presenter.currenciesDidReceive(parsedModel, with: .firstLoad)
+    func firstLoad(_: SessionManager, with currencyData: CurrencyList?) {
+        guard let parsedModel = currencyData else { return }
+        presenter.currenciesDidReceive(currencies: parsedModel, with: .firstLoad)
     }
     
-    func scrollLoad(_: SessionManager, data: CurrencyList?) {
-        guard let parsedModel = data else { return }
-        presenter.currenciesDidReceive(parsedModel, with: .scrollLoad)
+    func scrollLoad(_: SessionManager, with currencyData: CurrencyList?) {
+        guard let parsedModel = currencyData else { return }
+        presenter.currenciesDidReceive(currencies: parsedModel, with: .scrollLoad)
     }
     
-    func refreshLoad(_: SessionManager, data: CurrencyList?) {
-        guard let parsedModel = data else { return }
-        presenter.currenciesDidReceive(parsedModel, with: .updateData)
+    func refreshLoad(_: SessionManager, with currencyData: CurrencyList?) {
+        guard let parsedModel = currencyData else { return }
+        presenter.currenciesDidReceive(currencies: parsedModel, with: .updateData)
     }
 }

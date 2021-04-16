@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ModelRepresentable {
-    var model: CellIdentifiable? { get set }
+    var model: CellIdentifiable? { get }
 }

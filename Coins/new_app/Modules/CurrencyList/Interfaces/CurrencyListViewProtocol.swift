@@ -12,8 +12,8 @@ protocol CurrencyListViewProtocol: class {
     var currencies: CurrencyList? { get set }
     var isFetching: Bool { get set }
     func setupTableView()
-    func firstLoadCells(_ currencies: CurrencyList)
-    func updateCells(_ currencies: CurrencyList)
-    func scrollLoadCells(_ newCurriencies: CurrencyList)
+    func firstLoadCells(with currencies: CurrencyList)
+    func updateCells(with currencies: CurrencyList)
+    func scrollLoadCells(with newCurriencies: CurrencyList)
     func setupRefreshControl()
 }

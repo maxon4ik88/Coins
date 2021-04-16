@@ -23,14 +23,8 @@ extension EndPoint {
         }
     }
     
-    private var commonPath: String {
-        "/v1/cryptocurrency"
-    }
-    
-    private var apiKey: String {
-        "e3e9c128-89cf-4b3b-8b72-bf639e911045"
-    }
-    
+    private var commonPath: String { "/v1/cryptocurrency" }
+    private var apiKey: String { "e3e9c128-89cf-4b3b-8b72-bf639e911045" }
     private var counter: CurrencyListCounter {
         CurrencyListCounter.shared
     }

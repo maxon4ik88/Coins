@@ -8,15 +8,17 @@
 import UIKit
 
 class CurrencyListViewController: UIViewController, CurrencyListViewProtocol {
-    
+
     // MARK: - Public (Properties)
-    let configurator: CurrencyListConfiguratorProtocol = CurrencyListConfigurator()
+    var presenter: CurrencyListPresenterProtocol!
+    
+    // MARK: CurrencyListViewProtocol
     var isFetching = false
     var mainTableView: UITableView!
     var currencies: CurrencyList?
-    var presenter: CurrencyListPresenterProtocol!
     
     // MARK: - Private (Properties)
+    private let configurator: CurrencyListConfiguratorProtocol = CurrencyListConfigurator()
     private var refreshControl: UIRefreshControl!
     
     // MARK: - UIViewController
@@ -29,7 +31,7 @@ class CurrencyListViewController: UIViewController, CurrencyListViewProtocol {
 
 // MARK: - firstLoadCells
 extension CurrencyListViewController {
-    func firstLoadCells(_ currencies: CurrencyList) {
+    func firstLoadCells(with currencies: CurrencyList) {
         self.currencies = currencies
         mainTableView.reloadData()
     }
@@ -37,7 +39,7 @@ extension CurrencyListViewController {
 
 // MARK: - updateCells
 extension CurrencyListViewController {
-    func updateCells(_ currencies: CurrencyList) {
+    func updateCells(with currencies: CurrencyList) {
         self.currencies = currencies
         refreshControl.endRefreshing()
         mainTableView.reloadData()
@@ -46,8 +48,8 @@ extension CurrencyListViewController {
 
 // MARK: - scrollLoadCells
 extension CurrencyListViewController {
-    func scrollLoadCells(_ newCurriencies: CurrencyList) {
-        guard let models = newCurriencies.data else { return }
+    func scrollLoadCells(with newCurrencies: CurrencyList) {
+        guard let models = newCurrencies.data else { return }
         currencies?.data! += models
         isFetching = false
         mainTableView.reloadData()

@@ -10,7 +10,7 @@ import UIKit
 class CurrencyLoadCell: CurrencyBaseCell {
     
     // MARK: - Private (Properties)
-    private var activityIndicator = UIActivityIndicatorView(style: .medium)
+    private let activityIndicator = UIActivityIndicatorView(style: .medium)
     
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -24,8 +24,8 @@ class CurrencyLoadCell: CurrencyBaseCell {
     
     // MARK: - CurrencyBaseCell
     override func updateViews() {
-        guard let _ = model as? LoadCellModel else { return }
+        guard model is LoadCellModel else { return }
         activityIndicator.startAnimating()
-        activityIndicator.frame = self.bounds
+        activityIndicator.frame = bounds
     }
 }

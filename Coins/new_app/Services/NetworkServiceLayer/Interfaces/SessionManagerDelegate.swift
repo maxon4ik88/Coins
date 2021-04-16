@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SessionManagerDelegate: class {
-    func firstLoad(_: SessionManager, data: CurrencyList?)
-    func scrollLoad(_: SessionManager, data: CurrencyList?)
-    func refreshLoad(_: SessionManager, data: CurrencyList?)
+    func firstLoad(_: SessionManager, with currencyData: CurrencyList?)
+    func scrollLoad(_: SessionManager, with currencyData: CurrencyList?)
+    func refreshLoad(_: SessionManager, with currencyData: CurrencyList?)
 }

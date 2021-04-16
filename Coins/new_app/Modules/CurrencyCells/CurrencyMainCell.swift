@@ -10,17 +10,17 @@ import UIKit
 class CurrencyMainCell: CurrencyBaseCell {
     
     // MARK: - Private (Properties)
-    private let nameLabel = CellNameLabel()
-    private let priceLabel = CellPriceLabel()
-    private let changesLabel = CellChangesLabel()
+    private let currencyNameLabel = CellNameLabel()
+    private let currencyPriceLabel = CellPriceLabel()
+    private let currencyChangesLabel = CellChangesLabel()
     
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(nameLabel)
-        addSubview(priceLabel)
-        addSubview(changesLabel)
-        nameLabel.anchor(top: topAnchor,
+        addSubview(currencyNameLabel)
+        addSubview(currencyPriceLabel)
+        addSubview(currencyChangesLabel)
+        currencyNameLabel.anchor(top: topAnchor,
                          left: leftAnchor,
                          bottom: bottomAnchor,
                          right: nil,
@@ -31,7 +31,7 @@ class CurrencyMainCell: CurrencyBaseCell {
                          width: 110,
                          height: 0,
                          enableInsets: false)
-        priceLabel.anchor(top: topAnchor,
+        currencyPriceLabel.anchor(top: topAnchor,
                           left: nil,
                           bottom: bottomAnchor,
                           right: nil,
@@ -42,8 +42,8 @@ class CurrencyMainCell: CurrencyBaseCell {
                           width: 80,
                           height: 0,
                           enableInsets: false)
-        priceLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        changesLabel.anchor(top: topAnchor,
+        currencyPriceLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        currencyChangesLabel.anchor(top: topAnchor,
                             left: nil,
                             bottom: bottomAnchor,
                             right: rightAnchor,
@@ -63,20 +63,20 @@ class CurrencyMainCell: CurrencyBaseCell {
     // MARK: - CurrencyBaseCell
     override func updateViews() {
         guard let model = model as? CurrencyCellModel else { return }
-        nameLabel.text = model.currencyName
-        nameLabel.numberOfLines = (nameLabel.text?.filter({ $0 == " " }).count)! + 1
-        priceLabel.text = model.currencyPrice
+        currencyNameLabel.text = model.currencyName
+        currencyNameLabel.numberOfLines = (currencyNameLabel.text?.filter({ $0 == " " }).count)! + 1
+        currencyPriceLabel.text = model.currencyPrice
         
         switch model.currencyPriceChanging {
         case _ where model.currencyPriceChanging > 0:
-            changesLabel.text = "+\(model.currencyPriceChanging.rounded(to: 2))%"
-            changesLabel.textColor = .systemGreen
+            currencyChangesLabel.text = "+\(model.currencyPriceChanging.rounded(to: 2))%"
+            currencyChangesLabel.textColor = .systemGreen
         case _ where model.currencyPriceChanging < 0:
-            changesLabel.text = "\(model.currencyPriceChanging.rounded(to: 2))%"
-            changesLabel.textColor = .systemRed
+            currencyChangesLabel.text = "\(model.currencyPriceChanging.rounded(to: 2))%"
+            currencyChangesLabel.textColor = .systemRed
         default:
-            changesLabel.text = "\(model.currencyPriceChanging.rounded(to: 2))%"
-            changesLabel.textColor = .systemGray
+            currencyChangesLabel.text = "\(model.currencyPriceChanging.rounded(to: 2))%"
+            currencyChangesLabel.textColor = .systemGray
         }
     }
 }

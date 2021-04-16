@@ -24,28 +24,28 @@ class CurrencyListPresenter: CurrencyListPresenterProtocol {
     // MARK: - CurrencyListPresenterProtocol
     func updateViewCells() {
         counter.loadType = .update
-        interactor.networking(with: .updateData)
+        interactor.downloadCurrencies(with: .updateData)
     }
     
     func configureView() {
-        interactor.networking(with: .firstLoad)
+        interactor.downloadCurrencies(with: .firstLoad)
         view.setupTableView()
         view.setupRefreshControl()
     }
     
     func scrollLoadViewCells() {
         counter.loadType = .scrollLoad
-        interactor.networking(with: .scrollLoad)
+        interactor.downloadCurrencies(with: .scrollLoad)
     }
     
-    func currenciesDidReceive(_ currencies: CurrencyList, with type: SessionManager.SessionType) {
+    func currenciesDidReceive(currencies: CurrencyList, with type: SessionManager.SessionType) {
         switch type {
         case .firstLoad:
-            view.firstLoadCells(currencies)
+            view.firstLoadCells(with: currencies)
         case .scrollLoad:
-            view.scrollLoadCells(currencies)
+            view.scrollLoadCells(with: currencies)
         case .updateData:
-            view.updateCells(currencies)
+            view.updateCells(with: currencies)
         }
     }
 }

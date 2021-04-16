@@ -10,17 +10,17 @@ import UIKit
 class CustomHeaderView: UIView {
     
     // MARK: - Private (Properties)
-    private let nameLabel = SectionCurrencyLabel()
-    private let priceLabel = SectionPriceLabel()
-    private let changeLabel = SectionChangesLabel()
+    private let currencyNameLabel = SectionCurrencyLabel()
+    private let currencyPriceLabel = SectionPriceLabel()
+    private let currencyChangesLabel = SectionChangesLabel()
     
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(priceLabel)
-        addSubview(nameLabel)
-        addSubview(changeLabel)
-        nameLabel.anchor(top: topAnchor,
+        addSubview(currencyPriceLabel)
+        addSubview(currencyNameLabel)
+        addSubview(currencyChangesLabel)
+        currencyNameLabel.anchor(top: topAnchor,
                          left: leftAnchor,
                          bottom: bottomAnchor,
                          right: nil,
@@ -31,7 +31,7 @@ class CustomHeaderView: UIView {
                          width: 120,
                          height: 0,
                          enableInsets: false)
-        priceLabel.anchor(top: topAnchor,
+        currencyPriceLabel.anchor(top: topAnchor,
                           left: nil,
                           bottom: bottomAnchor,
                           right: nil,
@@ -42,8 +42,8 @@ class CustomHeaderView: UIView {
                           width: 90,
                           height: 0,
                           enableInsets: false)
-        priceLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        changeLabel.anchor(top: topAnchor,
+        currencyPriceLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        currencyChangesLabel.anchor(top: topAnchor,
                            left: nil,
                            bottom: bottomAnchor,
                            right: rightAnchor,

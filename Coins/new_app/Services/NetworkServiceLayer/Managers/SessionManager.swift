@@ -31,11 +31,11 @@ class SessionManager {
             DispatchQueue.main.async {
                 switch self.type {
                 case .firstLoad:
-                    self.delegate?.firstLoad(self, data: self.JSONManager.parse(data: data))
+                    self.delegate?.firstLoad(self, with: self.JSONManager.parse(data: data))
                 case .scrollLoad:
-                    self.delegate?.scrollLoad(self, data: self.JSONManager.parse(data: data))
+                    self.delegate?.scrollLoad(self, with: self.JSONManager.parse(data: data))
                 case .updateData:
-                    self.delegate?.refreshLoad(self, data: self.JSONManager.parse(data: data))
+                    self.delegate?.refreshLoad(self, with: self.JSONManager.parse(data: data))
                 }
             }
         }.resume()

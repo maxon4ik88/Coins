@@ -8,5 +8,5 @@
 import Foundation
 
 protocol SectionRowsRepresentable {
-    var rows: [CellIdentifiable] { get set }
+    var rows: [CellIdentifiable] { get }
 }

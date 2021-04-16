@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CurrencyListInteractorProtocol: class {
-    func networking(with type: SessionManager.SessionType)
+    func downloadCurrencies(with type: SessionManager.SessionType)
 }

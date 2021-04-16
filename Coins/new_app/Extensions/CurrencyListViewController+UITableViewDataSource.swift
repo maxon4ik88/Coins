@@ -42,7 +42,7 @@ extension CurrencyListViewController: UITableViewDelegate, UITableViewDataSource
         let model = CurrencyCellModel(data[indexPath.row])
         let cell = mainTableView.dequeueReusableCell(withIdentifier: "CurrencyCell", for: indexPath) as! CurrencyMainCell
         cell.model = model
-        cell.backgroundColor = UIColor.white
+        cell.backgroundColor = .white
         return cell
     }
 }

@@ -13,7 +13,7 @@ class CellChangesLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         font = .systemFont(ofSize: CGFloat(14))
-        textAlignment =  .left
+        textAlignment = .left
         translatesAutoresizingMaskIntoConstraints = false
     }
     
