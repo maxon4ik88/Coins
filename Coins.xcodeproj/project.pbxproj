@@ -137,7 +137,13 @@
 		871D609F25F5235800F9EE94 /* Coins */ = {
 			isa = PBXGroup;
 			children = (
-				E99ED9A62626373300881C7E /* new_app */,
+				AD35EF6E2625F0CA005E7272 /* Modules */,
+				AD4F455726274EE3009BB030 /* Services */,
+				AD4F455326274D88009BB030 /* Extensions */,
+				E99ED9A82626376000881C7E /* ViewModels */,
+				871D60C725F5648600F9EE94 /* Models */,
+				871D60BB25F5281D00F9EE94 /* Delegates */,
+				871D60BC25F5283100F9EE94 /* Resources */,
 			);
 			path = Coins;
 			sourceTree = "<group>";
@@ -326,20 +332,6 @@
 				876FCB5025F67A9B0096F519 /* CustomHeaderView.swift */,
 			);
 			path = CurrencySections;
-			sourceTree = "<group>";
-		};
-		E99ED9A62626373300881C7E /* new_app */ = {
-			isa = PBXGroup;
-			children = (
-				AD35EF6E2625F0CA005E7272 /* Modules */,
-				AD4F455726274EE3009BB030 /* Services */,
-				AD4F455326274D88009BB030 /* Extensions */,
-				E99ED9A82626376000881C7E /* ViewModels */,
-				871D60C725F5648600F9EE94 /* Models */,
-				871D60BB25F5281D00F9EE94 /* Delegates */,
-				871D60BC25F5283100F9EE94 /* Resources */,
-			);
-			path = new_app;
 			sourceTree = "<group>";
 		};
 		E99ED9A82626376000881C7E /* ViewModels */ = {
@@ -616,7 +608,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3S7282465J;
-				INFOPLIST_FILE = Coins/new_app/Resources/Info.plist;
+				INFOPLIST_FILE = Coins/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -636,7 +628,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3S7282465J;
-				INFOPLIST_FILE = Coins/new_app/Resources/Info.plist;
+				INFOPLIST_FILE = Coins/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
