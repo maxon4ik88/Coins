@@ -10,15 +10,17 @@ import Foundation
 protocol CurrencySectionModelDelegate: class {}
 
 class CurrencySectionModel: SectionRowsRepresentable {
-    var rows: [CellIdentifiable]
     
+    // MARK: - Public (Properties)
     weak var delegate: CurrencySectionModelDelegate?
     
+    // MARK: - SectionRowsRepresentable
+    var rows: [CellIdentifiable]
+    
+    // MARK: - Init
     init(_ currency: CurrencyData?) {
         rows = [CellIdentifiable]()
-        
         guard let currency = currency else { return }
-        
         rows.append(CurrencyCellModel(currency))
     }
 }

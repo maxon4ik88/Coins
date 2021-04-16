@@ -9,6 +9,7 @@ import UIKit
 
 class SectionCurrencyLabel: UILabel {
     
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         text = "Currency"

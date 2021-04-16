@@ -9,11 +9,10 @@ import Foundation
 
 class CurrencyListConfigurator: CurrencyListConfiguratorProtocol {
     
+    // MARK: CurrencyListConfiguratorProtocol
     func configure(with viewController: CurrencyListViewController) {
-        
         let presenter = CurrencyListPresenter(view: viewController)
         let interactor = CurrencyListInteractor(presenter: presenter)
-        
         viewController.presenter = presenter
         presenter.interactor = interactor
     }

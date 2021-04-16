@@ -7,32 +7,13 @@
 
 import Foundation
 
-// MARK: - Input interfaces
-
-protocol CellIdentifiable {
-    var cellIdentifier: String { get }
-    var cellHeight: Float { get }
-}
-
-protocol ModelRepresentable {
-    var model: CellIdentifiable? { get set }
-}
-
-protocol SectionRowsRepresentable {
-    var rows: [CellIdentifiable] { get set }
-}
-
-// MARK: - Base class for all CellModels
 
 class BaseCellModel: CellIdentifiable {
     
-    let automaticHeight: Float = -1.0
+    // MARK: - Private (Properties)
+    private let automaticHeight: Float = -1.0
     
-    var cellIdentifier: String {
-        return ""
-    }
-    
-    var cellHeight: Float {
-        return automaticHeight
-    }
+    // MARK: - CellIdentifiable
+    var cellIdentifier: String { "" }
+    var cellHeight: Float { automaticHeight }
 }

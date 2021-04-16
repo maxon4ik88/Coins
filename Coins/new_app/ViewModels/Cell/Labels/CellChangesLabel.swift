@@ -9,6 +9,7 @@ import UIKit
 
 class CellChangesLabel: UILabel {
     
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         font = .systemFont(ofSize: CGFloat(14))

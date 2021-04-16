@@ -8,9 +8,10 @@
 import Foundation
 
 class JSONManager {
+    
+    // MARK: - Public (Interface)
     func parse(data: Data) -> CurrencyList? {
         let decoder = JSONDecoder()
-        
         do {
             let parsedModel = try decoder.decode(CurrencyList.self, from: data)
             return parsedModel

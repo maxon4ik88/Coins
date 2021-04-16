@@ -46,6 +46,9 @@
 		AD76E34B26298C4800328CD0 /* SectionCurrencyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76E34A26298C4700328CD0 /* SectionCurrencyLabel.swift */; };
 		AD76E34E26298C8600328CD0 /* SectionPriceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76E34D26298C8600328CD0 /* SectionPriceLabel.swift */; };
 		AD76E35126298CE200328CD0 /* SectionChangesLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76E35026298CE200328CD0 /* SectionChangesLabel.swift */; };
+		AD76E35626299E7F00328CD0 /* CellIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76E35526299E7F00328CD0 /* CellIdentifiable.swift */; };
+		AD76E35926299E9800328CD0 /* ModelRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76E35826299E9800328CD0 /* ModelRepresentable.swift */; };
+		AD76E35C26299EA500328CD0 /* SectionRowsRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD76E35B26299EA500328CD0 /* SectionRowsRepresentable.swift */; };
 		ADA12C1D2628A5DD001A756A /* CurrencyLoadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA12C1C2628A5DD001A756A /* CurrencyLoadCell.swift */; };
 		ADA12C202628AEB5001A756A /* LoadCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA12C1F2628AEB5001A756A /* LoadCellModel.swift */; };
 		ADB79E9726297F84006492ED /* CellNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB79E9626297F84006492ED /* CellNameLabel.swift */; };
@@ -94,6 +97,9 @@
 		AD76E34A26298C4700328CD0 /* SectionCurrencyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCurrencyLabel.swift; sourceTree = "<group>"; };
 		AD76E34D26298C8600328CD0 /* SectionPriceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionPriceLabel.swift; sourceTree = "<group>"; };
 		AD76E35026298CE200328CD0 /* SectionChangesLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionChangesLabel.swift; sourceTree = "<group>"; };
+		AD76E35526299E7F00328CD0 /* CellIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifiable.swift; sourceTree = "<group>"; };
+		AD76E35826299E9800328CD0 /* ModelRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRepresentable.swift; sourceTree = "<group>"; };
+		AD76E35B26299EA500328CD0 /* SectionRowsRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionRowsRepresentable.swift; sourceTree = "<group>"; };
 		ADA12C1C2628A5DD001A756A /* CurrencyLoadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLoadCell.swift; sourceTree = "<group>"; };
 		ADA12C1F2628AEB5001A756A /* LoadCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCellModel.swift; sourceTree = "<group>"; };
 		ADB79E9626297F84006492ED /* CellNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellNameLabel.swift; sourceTree = "<group>"; };
@@ -304,6 +310,16 @@
 			path = Labels;
 			sourceTree = "<group>";
 		};
+		AD76E35426299E6800328CD0 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				AD76E35526299E7F00328CD0 /* CellIdentifiable.swift */,
+				AD76E35826299E9800328CD0 /* ModelRepresentable.swift */,
+				AD76E35B26299EA500328CD0 /* SectionRowsRepresentable.swift */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
 		ADA12C222628B253001A756A /* CurrencySections */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +345,7 @@
 		E99ED9A82626376000881C7E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				AD76E35426299E6800328CD0 /* Interfaces */,
 				AD35EF892626DE1C005E7272 /* Section */,
 				E99ED9A92626381B00881C7E /* Cell */,
 			);
@@ -416,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD76E35C26299EA500328CD0 /* SectionRowsRepresentable.swift in Sources */,
 				AD76E35126298CE200328CD0 /* SectionChangesLabel.swift in Sources */,
 				AD754F3D262832D800EA8239 /* NetworkService.swift in Sources */,
 				AD76C5F4262496C500DC4B47 /* EndPoint.swift in Sources */,
@@ -431,6 +449,7 @@
 				AD35EF5A26258CBA005E7272 /* RestEndPointType.swift in Sources */,
 				AD4F454B26274BD6009BB030 /* CurrencyListInteractorProtocol.swift in Sources */,
 				871D60A125F5235800F9EE94 /* AppDelegate.swift in Sources */,
+				AD76E35626299E7F00328CD0 /* CellIdentifiable.swift in Sources */,
 				AD35EF872626D4EB005E7272 /* CurrencyMainCell.swift in Sources */,
 				871D60A325F5235800F9EE94 /* SceneDelegate.swift in Sources */,
 				AD754F3126282DEE00EA8239 /* SessionManager.swift in Sources */,
@@ -439,6 +458,7 @@
 				AD35EF832626D309005E7272 /* CurrencyBaseCell.swift in Sources */,
 				AD4F454726274B1B009BB030 /* CurrencyListConfiguratorProtocol.swift in Sources */,
 				ADB79E9726297F84006492ED /* CellNameLabel.swift in Sources */,
+				AD76E35926299E9800328CD0 /* ModelRepresentable.swift in Sources */,
 				AD4F454E26274C11009BB030 /* CurrencyListPresenterProtocol.swift in Sources */,
 				AD35EF8B2626DE42005E7272 /* SectionModel.swift in Sources */,
 				ADA12C202628AEB5001A756A /* LoadCellModel.swift in Sources */,

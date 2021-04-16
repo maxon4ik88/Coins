@@ -9,14 +9,15 @@ import Foundation
 
 class CurrencyCellModel: BaseCellModel {
     
-    override var cellIdentifier: String {
-        return "CurrencyCell"
-    }
-    
+    // MARK: - Public (Properties)
     var currencyName: String
     var currencyPrice: String
     var currencyPriceChanging: Double
     
+    // MARK: - CellIdentifiable
+    override var cellIdentifier: String { "CurrencyCell" }
+    
+    // MARK: - Init
     init(_ currency: CurrencyData?) {
         currencyName = currency?.name ?? "no_data"
         currencyPrice = "\(currency?.quote?.usd?.price?.rounded(to: 2) ?? 0)$"

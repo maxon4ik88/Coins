@@ -9,11 +9,11 @@ import UIKit
 
 class CurrencyBaseCell: UITableViewCell, ModelRepresentable {
     
+    // MARK: - ModelRepresentable
     var model: CellIdentifiable? {
-        didSet {
-            updateViews()
-        }
+        didSet { updateViews() }
     }
     
+    // MARK: - CurrencyBaseCell
     func updateViews() {}
 }

@@ -8,13 +8,8 @@
 import Foundation
 
 extension URLRequest {
-    
     static func customRequest(endPointManager: EndPointManager) -> URLRequest {
-        
-        print("IN URLRequestEXTENSION: \(endPointManager.url)")
-
         guard let url = URL(string: endPointManager.url) else {
-            
             let url = URL(string: "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=2&start=1")!
             return URLRequest(url: url)
         }

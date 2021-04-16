@@ -9,18 +9,25 @@ import Foundation
 
 class SessionManager {
     
+    // MARK: - Public (Properties)
+    weak var delegate: SessionManagerDelegate?
+    
+    // MARK: - Private (Properties)
     private let request: URLRequest
     private let type: SessionType
     private let JSONManager: JSONManager
     
-    weak var delegate: SessionManagerDelegate?
+    // MARK: - Init
+    init(request: URLRequest, type: SessionType, JSONManager: JSONManager) {
+        self.request = request
+        self.type = type
+        self.JSONManager = JSONManager
+    }
     
+    // MARK: - Public (Interface)
     func startTask() {
-        
         URLSession.shared.dataTask(with: request) { (Data, URLResponse, Error) in
-            
             guard let data = Data else { return }
-            
             DispatchQueue.main.async {
                 switch self.type {
                 case .firstLoad:
@@ -32,11 +39,5 @@ class SessionManager {
                 }
             }
         }.resume()
-    }
-    
-    init(request: URLRequest, type: SessionType, JSONManager: JSONManager) {
-        self.request = request
-        self.type = type
-        self.JSONManager = JSONManager
     }
 }

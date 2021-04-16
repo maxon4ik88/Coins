@@ -9,6 +9,12 @@ import Foundation
 
 class NetworkService {
     
+    // MARK: - Public (Properties)
+    weak var delegate: SessionManagerDelegate? {
+        didSet { sessionManager.delegate = delegate }
+    }
+    
+    // MARK: - Private (Properties)
     private let loadType: SessionManager.SessionType
     private let endPoint: EndPoint
     private let endPointManager: EndPointManager
@@ -17,16 +23,7 @@ class NetworkService {
     private let jsonManager: JSONManager
     private let sessionManager: SessionManager
     
-    weak var delegate: SessionManagerDelegate? {
-        didSet {
-            self.sessionManager.delegate = delegate
-        }
-    }
-    
-    func startTask() {
-        sessionManager.startTask()
-    }
-    
+    // MARK: -  Init
     init(with task: SessionManager.SessionType) {
         loadType = task
         endPoint = .loadLatestMarketData
@@ -45,5 +42,10 @@ class NetworkService {
         request = requestManager.request
         jsonManager = JSONManager()
         sessionManager = SessionManager(request: request, type: task, JSONManager: jsonManager)
+    }
+    
+    // MARK: Public (Interface)
+    func startTask() {
+        sessionManager.startTask()
     }
 }

@@ -9,6 +9,7 @@ import UIKit
 
 class CellNameLabel: UILabel {
     
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         font = .boldSystemFont(ofSize: CGFloat(14))

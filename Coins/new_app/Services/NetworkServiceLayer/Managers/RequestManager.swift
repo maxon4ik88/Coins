@@ -9,12 +9,13 @@ import Foundation
 
 class RequestManager {
     
+    // MARK: - Public (Properties)
+    var request: URLRequest { .customRequest(endPointManager: endPointManager) }
+    
+    // MARK: - Private (Properties)
     private let endPointManager: EndPointManager
     
-    var request: URLRequest {
-        return URLRequest.customRequest(endPointManager: endPointManager)
-    }
-    
+    // MARK: - Init
     init(endPointManager: EndPointManager) {
         self.endPointManager = endPointManager
     }

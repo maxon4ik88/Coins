@@ -8,66 +8,54 @@
 import UIKit
 
 class CurrencyListViewController: UIViewController, CurrencyListViewProtocol {
-
-    private var refreshControl: UIRefreshControl!
-    var isFetching = false
     
+    // MARK: - Public (Properties)
+    let configurator: CurrencyListConfiguratorProtocol = CurrencyListConfigurator()
+    var isFetching = false
     var mainTableView: UITableView!
     var currencies: CurrencyList?
-    
     var presenter: CurrencyListPresenterProtocol!
-    let configurator: CurrencyListConfiguratorProtocol = CurrencyListConfigurator()
     
+    // MARK: - Private (Properties)
+    private var refreshControl: UIRefreshControl!
+    
+    // MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configurator.configure(with: self)
         presenter.configureView()
     }
-    
 }
 
-// MARK: - FirstLoadCells
-
+// MARK: - firstLoadCells
 extension CurrencyListViewController {
-    
     func firstLoadCells(_ currencies: CurrencyList) {
         self.currencies = currencies
         mainTableView.reloadData()
-        print("VIEW(firstLoadCells_method): Currencies_count is - \(currencies.data?.count ?? -1)")
     }
 }
 
-// MARK: - UpdateCells
-
+// MARK: - updateCells
 extension CurrencyListViewController {
-    
     func updateCells(_ currencies: CurrencyList) {
         self.currencies = currencies
         refreshControl.endRefreshing()
         mainTableView.reloadData()
-        print("VIEW(updateCells_method): Currencies_count is - \(currencies.data?.count ?? -1)")
     }
 }
 
-// MARK: - ScrollLoadCells
-
+// MARK: - scrollLoadCells
 extension CurrencyListViewController {
-    
     func scrollLoadCells(_ newCurriencies: CurrencyList) {
-        print("VIEW(scrollLoadCells_method): input_Curriencies_count is - \(newCurriencies.data?.count ?? 0)")
         guard let models = newCurriencies.data else { return }
         currencies?.data! += models
         isFetching = false
         mainTableView.reloadData()
-        print("VIEW(scrollLoadCells_method): Currencies_count is - \(currencies?.data?.count ?? -1)")
     }
 }
 
-// MARK: -  SetupRefreshControl
-
+// MARK: - setupRefreshControl
 extension CurrencyListViewController {
-    
     func setupRefreshControl() {
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(updateData), for: .valueChanged)
@@ -79,8 +67,7 @@ extension CurrencyListViewController {
     }
 }
 
-// MARK: - SetupScrolling
-
+// MARK: - scrollViewDidScroll
 extension CurrencyListViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height) && !isFetching {
@@ -90,23 +77,17 @@ extension CurrencyListViewController {
     }
 }
 
-// MARK: - Setup TableView in controller
-
+// MARK: - setupTableView
 extension CurrencyListViewController {
     func setupTableView() {
-        
         mainTableView = UITableView()
         mainTableView.backgroundColor = UIColor.white
         mainTableView.translatesAutoresizingMaskIntoConstraints = false
-        
         mainTableView.delegate = self
         mainTableView.dataSource = self
-        
         mainTableView.register(CurrencyLoadCell.self, forCellReuseIdentifier: "LoadingCell")
         mainTableView.register(CurrencyMainCell.self, forCellReuseIdentifier: "CurrencyCell")
-        
         view.addSubview(mainTableView)
-        
         NSLayoutConstraint.activate([
             mainTableView.topAnchor.constraint(equalTo: self.view.topAnchor),
             mainTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),

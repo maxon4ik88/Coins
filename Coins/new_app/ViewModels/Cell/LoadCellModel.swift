@@ -9,7 +9,6 @@ import Foundation
 
 class LoadCellModel: BaseCellModel {
     
-    override var cellIdentifier: String {
-        "LoadingCell"
-    }
+    // MARK: - CellIdentifiable
+    override var cellIdentifier: String { "LoadingCell" }
 }

@@ -12,9 +12,8 @@ enum EndPoint {
     case loadIDMaps
 }
 
+// MARK: - Private (Properties)
 extension EndPoint {
-    
-    // MARK: - Private (Properties)
     private var endPointPath: String {
         switch self {
         case .loadLatestMarketData:
@@ -29,25 +28,16 @@ extension EndPoint {
     }
     
     private var apiKey: String {
-        return "e3e9c128-89cf-4b3b-8b72-bf639e911045"
+        "e3e9c128-89cf-4b3b-8b72-bf639e911045"
     }
     
     private var counter: CurrencyListCounter {
-        return CurrencyListCounter.shared
+        CurrencyListCounter.shared
     }
 }
 
 // MARK: - RestEndPointType
 extension EndPoint: RestEndPointType {
-    
-    var scheme: String {
-        "https://"
-    }
-    
-    var host: String {
-        "pro-api.coinmarketcap.com"
-    }
-    
     var httpMethod: HTTPMethod {
         switch self {
         case .loadLatestMarketData,
@@ -55,24 +45,11 @@ extension EndPoint: RestEndPointType {
             return .get
         }
     }
-    
-    var path: String {
-        return commonPath + endPointPath
-    }
-    
-    var header: [String : String] {
-        return ["X-CMC_PRO_API_KEY": apiKey]
-    }
-    
-    var start: Int {
-        return counter.start
-    }
-    
-    var limit: Int {
-        return counter.limit
-    }
-    
-    var parameters: String {
-        return "?limit=\(limit)&start=\(start)"
-    }
+    var scheme: String { "https://" }
+    var host: String { "pro-api.coinmarketcap.com" }
+    var path: String { commonPath + endPointPath }
+    var header: [String : String] { ["X-CMC_PRO_API_KEY": apiKey] }
+    var start: Int { counter.start }
+    var limit: Int { counter.limit }
+    var parameters: String { "?limit=\(limit)&start=\(start)" }
 }

@@ -9,6 +9,7 @@ import UIKit
 
 class SectionChangesLabel: UILabel {
     
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         text = "Change"

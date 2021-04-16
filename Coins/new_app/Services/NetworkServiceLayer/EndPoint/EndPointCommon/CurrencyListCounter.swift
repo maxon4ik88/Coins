@@ -9,10 +9,8 @@ import Foundation
 
 class CurrencyListCounter {
     
+    // MARK: - Public (Properties)
     static let shared = CurrencyListCounter()
-    
-    private var totalLoads = 30
-    
     var loadType: LoadTypes {
         didSet {
             switch loadType {
@@ -32,15 +30,19 @@ class CurrencyListCounter {
             }
         }
     }
-    
     var start: Int = 1
     var limit = 30
     
+    // MARK: - Private (Properties)
+    private var totalLoads = 30
+    
+    // MARK: - Init
     private init() {
         loadType = .firstLoad
     }
 }
 
+// MARK: - LoadTypes
 extension CurrencyListCounter {
     enum LoadTypes {
         case update
