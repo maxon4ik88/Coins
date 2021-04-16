@@ -11,20 +11,10 @@ class CustomHeaderView: UIView {
     
     // MARK: - Labels
     
-    let nameLabel = ViewCreator.createLabel(name: "Currency",
-                                            font: .bold,
-                                            size: .large,
-                                            position: .left)
+    private let nameLabel = SectionCurrencyLabel()
+    private let priceLabel = SectionPriceLabel()
+    private let changeLabel = SectionChangesLabel()
     
-    let priceLabel = ViewCreator.createLabel(name: "Price",
-                                             font: .bold,
-                                             size: .large,
-                                             position: .center)
-    
-    let changeLabel = ViewCreator.createLabel(name: "Change",
-                                              font: .bold,
-                                              size: .large,
-                                              position: .right)
     // MARK: - Init
     
     override init(frame: CGRect) {

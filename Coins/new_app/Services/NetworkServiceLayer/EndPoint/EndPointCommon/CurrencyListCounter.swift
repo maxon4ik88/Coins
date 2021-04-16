@@ -22,7 +22,11 @@ class CurrencyListCounter {
             case .firstLoad:
                 totalLoads = 30
             case .scrollLoad:
-                start = totalLoads
+                if totalLoads == 30 {
+                    start = totalLoads + 1
+                }  else {
+                    start = totalLoads
+                }
                 limit = 10
                 totalLoads += 10
             }

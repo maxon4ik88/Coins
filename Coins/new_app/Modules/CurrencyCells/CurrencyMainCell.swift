@@ -9,17 +9,9 @@ import UIKit
 
 class CurrencyMainCell: CurrencyBaseCell {
     
-    private let nameLabel = ViewCreator.createLabel(font: .bold,
-                                                    size: .normal,
-                                                    position: .left)
-    
-    private let priceLabel = ViewCreator.createLabel(font: .normal,
-                                                     size: .normal,
-                                                     position: .center)
-    
-    private let changesLabel = ViewCreator.createLabel(font: .normal,
-                                                       size: .normal,
-                                                       position: .left)
+    private let nameLabel = CellNameLabel()
+    private let priceLabel = CellPriceLabel()
+    private let changesLabel = CellChangesLabel()
     
     override func updateViews() {
         guard let model = model as? CurrencyCellModel else { return }
