@@ -32,6 +32,10 @@ extension EndPoint {
 
 // MARK: - RestEndPointType
 extension EndPoint: RestEndPointType {
+    var testParameters: [URLQueryItem] {
+        [URLQueryItem(name: "limit", value: "\(limit)"), URLQueryItem(name: "start", value: "\(start)")]
+    }
+    
     var httpMethod: HTTPMethod {
         switch self {
         case .loadLatestMarketData,
@@ -39,7 +43,7 @@ extension EndPoint: RestEndPointType {
             return .get
         }
     }
-    var scheme: String { "https://" }
+    var scheme: String { "https" }
     var host: String { "pro-api.coinmarketcap.com" }
     var path: String { commonPath + endPointPath }
     var header: [String : String] { ["X-CMC_PRO_API_KEY": apiKey] }

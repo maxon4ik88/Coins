@@ -12,8 +12,9 @@ protocol RestEndPointType {
     var host: String { get }
     var httpMethod: HTTPMethod { get }
     var path: String { get }
-    var header: [String: String]  { get }
+    var header: [String: String] { get }
     var start: Int { get }
     var limit: Int { get }
     var parameters: String { get }
+    var testParameters: [URLQueryItem] { get }
 }

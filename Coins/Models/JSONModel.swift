@@ -5,8 +5,6 @@
 //  Created by Maxon on 07.03.2021.
 //
 
-import Foundation
-
 // MARK: - CurrencyList
 struct CurrencyList: Codable {
     var data: [CurrencyData]?

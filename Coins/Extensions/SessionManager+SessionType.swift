@@ -5,9 +5,7 @@
 //  Created by Maxim on 15.04.2021.
 //
 
-import Foundation
-
-extension SessionManager {
+extension SessionService {
     enum SessionType {
         case firstLoad
         case scrollLoad

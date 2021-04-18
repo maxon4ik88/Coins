@@ -5,9 +5,7 @@
 //  Created by Maxim on 14.04.2021.
 //
 
-import Foundation
-
-class CurrencyCellModel: BaseCellModel {
+class CurrencyCellModel: BaseCellModel, CellIdentifiable {
     
     // MARK: - Public (Properties)
     var currencyName: String
@@ -15,7 +13,7 @@ class CurrencyCellModel: BaseCellModel {
     var currencyPriceChanging: Double
     
     // MARK: - CellIdentifiable
-    override var cellIdentifier: String { "CurrencyCell" }
+    static var cellIdentifier: String = "CurrencyCell" 
     
     // MARK: - Init
     init(_ currency: CurrencyData?) {

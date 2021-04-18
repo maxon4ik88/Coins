@@ -5,8 +5,6 @@
 //  Created by Maxim on 14.04.2021.
 //
 
-import Foundation
-
 protocol CurrencySectionModelDelegate: class {}
 
 class CurrencySectionModel: SectionRowsRepresentable {

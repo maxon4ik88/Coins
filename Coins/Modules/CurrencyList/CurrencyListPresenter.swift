@@ -28,9 +28,8 @@ class CurrencyListPresenter: CurrencyListPresenterProtocol {
     }
     
     func configureView() {
+        view.setupView()
         interactor.downloadCurrencies(with: .firstLoad)
-        view.setupTableView()
-        view.setupRefreshControl()
     }
     
     func scrollLoadViewCells() {
@@ -38,14 +37,16 @@ class CurrencyListPresenter: CurrencyListPresenterProtocol {
         interactor.downloadCurrencies(with: .scrollLoad)
     }
     
-    func currenciesDidReceive(currencies: CurrencyList, with type: SessionManager.SessionType) {
-        switch type {
-        case .firstLoad:
-            view.firstLoadCells(with: currencies)
-        case .scrollLoad:
-            view.scrollLoadCells(with: currencies)
-        case .updateData:
-            view.updateCells(with: currencies)
+    func currenciesDidReceive(currencies: CurrencyList, with type: SessionService.SessionType) {
+        DispatchQueue.main.async {
+            switch type {
+            case .firstLoad:
+                self.view.firstLoadCells(with: currencies)
+            case .scrollLoad:
+                self.view.scrollLoadCells(with: currencies)
+            case .updateData:
+                self.view.updateCells(with: currencies)
+            }
         }
     }
 }

@@ -5,8 +5,6 @@
 //  Created by Maxim on 13.04.2021.
 //
 
-import Foundation
-
 class CurrencyListCounter {
     
     // MARK: - Public (Properties)
