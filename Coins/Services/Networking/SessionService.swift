@@ -23,7 +23,7 @@ class SessionService {
         components.scheme = endPoint.scheme
         components.host = endPoint.host
         components.path = endPoint.path
-        components.queryItems = endPoint.testParameters
+        components.queryItems = endPoint.parameters
     }
     
     // MARK: - Public (Interface)
@@ -37,7 +37,7 @@ class SessionService {
         URLSession.shared.dataTask(with: request) { (Data, URLResponse, Error) in
             guard let data = Data else { return }
             
-            self.delegate?.dataDidReceived(self, with: data)
+            self.delegate?.receivedFromSession(self, with: data)
         }.resume()
     }
 }

@@ -1,5 +1,5 @@
 //
-//  CurrencyMainCell.swift
+//  CurrencyMainViewCell.swift
 //  Coins
 //
 //  Created by Maxim on 14.04.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CurrencyMainCell: CurrencyBaseCell {
+class CurrencyMainViewCell: CurrencyBaseViewCell {
     
     // MARK: - Private (Properties)
     private lazy var nameLabel: UILabel = {
@@ -51,7 +51,7 @@ class CurrencyMainCell: CurrencyBaseCell {
     
     // MARK: - CurrencyBaseCell
     override func updateViews() {
-        guard let model = model as? MainCellModel else { return }
+        guard let model = model as? CurrencyMainCellModel else { return }
         
         let name = model.currencyName
         let price = model.currencyPrice

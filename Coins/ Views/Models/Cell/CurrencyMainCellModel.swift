@@ -1,11 +1,11 @@
 //
-//  CurrencyCellModel.swift
+//  CurrencyMainCellModel.swift
 //  Coins
 //
 //  Created by Maxim on 14.04.2021.
 //
 
-class MainCellModel: BaseCellModel, CellIdentifiable {
+class CurrencyMainCellModel: BaseCellModel, CellIdentifiable {
     
     // MARK: - Public (Properties)
     var currencyName: String

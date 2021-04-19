@@ -1,5 +1,5 @@
 //
-//  CustomHeaderView.swift
+//  CurrencyHeaderView.swift
 //  Coins
 //
 //  Created by Maxon on 08.03.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomHeaderView: UIView {
+class CurrencyHeaderView: UIView {
     
     // MARK: - Private (Properties)
     private lazy var nameLabel: UILabel = {

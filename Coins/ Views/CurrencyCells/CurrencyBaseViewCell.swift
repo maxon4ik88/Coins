@@ -1,5 +1,5 @@
 //
-//  CurrencyBaseCell.swift
+//  CurrencyBaseViewCell.swift
 //  Coins
 //
 //  Created by Maxim on 14.04.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CurrencyBaseCell: UITableViewCell, ModelRepresentable {
+class CurrencyBaseViewCell: UITableViewCell, ModelRepresentable {
     
     // MARK: - ModelRepresentable
     var model: CellIdentifiable? {

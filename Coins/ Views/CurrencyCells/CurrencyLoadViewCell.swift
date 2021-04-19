@@ -1,5 +1,5 @@
 //
-//  CurrencyLoadCell.swift
+//  CurrencyLoadViewCell.swift
 //  Coins
 //
 //  Created by Maxim on 15.04.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CurrencyLoadCell: CurrencyBaseCell {
+class CurrencyLoadViewCell: CurrencyBaseViewCell {
     
     // MARK: - Private (Properties)
     private lazy var activityIndicator: UIActivityIndicatorView = {
@@ -31,7 +31,7 @@ class CurrencyLoadCell: CurrencyBaseCell {
     
     // MARK: - CurrencyBaseCell
     override func updateViews() {
-        guard model is LoadCellModel else { return }
+        guard model is CurrencyLoadCellModel else { return }
         
         activityIndicator.startAnimating()
     }

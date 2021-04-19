@@ -17,7 +17,7 @@ class NetworkService {
     private let taskType: NetworkService.LoadType
     private var session: SessionService
     private var jsonManager: JSONManager
-
+    
     // MARK: -  Init
     init(with task: NetworkService.LoadType) {
         endPoint = .loadLatestMarketData
@@ -42,17 +42,10 @@ class NetworkService {
 
 // MARK: - SessionServiceDelegate
 extension NetworkService: SessionServiceDelegate {
-    func dataDidReceived(_ SessionService: SessionService, with CurrencyModel: Data) {
+    func receivedFromSession(_ SessionService: SessionService, with CurrencyModel: Data) {
         let parsedData = jsonManager.parse(data: CurrencyModel)
         
-        switch self.taskType {
-        case .firstLoad:
-            self.delegate?.firstLoad(self, with: parsedData)
-        case .scrollLoad:
-            self.delegate?.scrollLoad(self, with: parsedData)
-        case .updateData:
-            self.delegate?.refreshLoad(self, with: parsedData)
-        }
+        delegate?.sentToInteractor(self, parsedData: parsedData, with: taskType)
     }
 }
 

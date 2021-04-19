@@ -8,5 +8,5 @@
 import Foundation
 
 protocol SessionServiceDelegate: class {
-    func dataDidReceived(_ SessionService: SessionService, with CurrencyModel: Data)
+    func receivedFromSession(_ SessionService: SessionService, with CurrencyModel: Data)
 }

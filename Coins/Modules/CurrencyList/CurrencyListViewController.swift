@@ -15,9 +15,7 @@ class CurrencyListViewController: UIViewController, CurrencyListViewProtocol {
     // MARK: - Private (Properties)
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self,
-                                 action: #selector(updateData),
-                                 for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(updateData), for: .valueChanged)
         
         return refreshControl
     }()
@@ -30,13 +28,13 @@ class CurrencyListViewController: UIViewController, CurrencyListViewProtocol {
         tableView.backgroundColor = .white
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        tableView.register(CurrencyLoadCell.self, forCellReuseIdentifier: LoadCellModel.cellIdentifier)
-        tableView.register(CurrencyMainCell.self, forCellReuseIdentifier: MainCellModel.cellIdentifier)
+        tableView.register(CurrencyLoadViewCell.self, forCellReuseIdentifier: CurrencyLoadCellModel.cellIdentifier)
+        tableView.register(CurrencyMainViewCell.self, forCellReuseIdentifier: CurrencyMainCellModel.cellIdentifier)
         
         return tableView
     }()
     
-    private var currencies: CurrencyList?
+    private var currencyArray: [CurrencyData]?
     private var isFetching = false
     
     // MARK: - UIViewController
@@ -51,23 +49,23 @@ class CurrencyListViewController: UIViewController, CurrencyListViewProtocol {
         addLayouts()
     }
     
-    func firstLoadCells(with currencies: CurrencyList) {
-        self.currencies = currencies
+    func initializeCells(with currencies: [CurrencyData]) {
+        currencyArray = currencies
         mainTableView.reloadData()
     }
     
-    func updateCells(with currencies: CurrencyList) {
-        self.currencies = currencies
+    func refreshCells(with currencies: [CurrencyData]) {
+        currencyArray = currencies
         refreshControl.endRefreshing()
         mainTableView.reloadData()
     }
     
-    func scrollLoadCells(with newCurrencies: CurrencyList) {
-        guard let models = newCurrencies.data else { return }
-        
-        currencies?.data! += models
-        isFetching = false
-        mainTableView.reloadData()
+    func didScrollCells(with currencies: [CurrencyData]) {
+        if currencyArray != nil {
+            currencyArray! += currencies
+            isFetching = false
+            mainTableView.reloadData()
+        }
     }
     
     // MARK: - Private (Interface)
@@ -86,7 +84,7 @@ class CurrencyListViewController: UIViewController, CurrencyListViewProtocol {
     }
     
     @objc private func updateData() {
-        presenter.updateViewCells()
+        presenter.refreshViewCells()
     }
 }
 
@@ -94,7 +92,7 @@ class CurrencyListViewController: UIViewController, CurrencyListViewProtocol {
 extension CurrencyListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            guard let currencyDataCount = currencies?.data?.count, currencyDataCount > 0 else { return 0 }
+            guard let currencyDataCount = currencyArray?.count, currencyDataCount > 0 else { return 0 }
             return currencyDataCount
         } else {
             return 1
@@ -102,17 +100,17 @@ extension CurrencyListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let currencies = currencies, let data = currencies.data, indexPath.section == 0 else {
+        guard let currencies = currencyArray, indexPath.section == 0 else {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: LoadCellModel.cellIdentifier, for: indexPath) as! CurrencyLoadCell
-            let model = LoadCellModel()
+            let cell = tableView.dequeueReusableCell(withIdentifier: CurrencyLoadCellModel.cellIdentifier, for: indexPath) as! CurrencyLoadViewCell
+            let model = CurrencyLoadCellModel()
             cell.model = model
             
             return cell
         }
         
-        let model = MainCellModel(data[indexPath.row])
-        let cell = mainTableView.dequeueReusableCell(withIdentifier: MainCellModel.cellIdentifier, for: indexPath) as! CurrencyMainCell
+        let model = CurrencyMainCellModel(currencies[indexPath.row])
+        let cell = mainTableView.dequeueReusableCell(withIdentifier: CurrencyMainCellModel.cellIdentifier, for: indexPath) as! CurrencyMainViewCell
         cell.model = model
         
         return cell
@@ -122,7 +120,7 @@ extension CurrencyListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension CurrencyListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = CustomHeaderView(frame: CGRect(x: 0, y: 0,
+        let headerView = CurrencyHeaderView(frame: CGRect(x: 0, y: 0,
                                                         width: tableView.frame.size.width,
                                                         height: tableView.frame.size.height))
         headerView.backgroundColor = .systemGray6
@@ -138,7 +136,7 @@ extension CurrencyListViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height) && !isFetching {
             isFetching.toggle()
-            presenter.scrollLoadViewCells()
+            presenter.didScrollViewCells()
         }
     }
 }

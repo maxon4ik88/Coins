@@ -32,10 +32,6 @@ extension EndPoint {
 
 // MARK: - RestEndPointType
 extension EndPoint: RestEndPointType {
-    var testParameters: [URLQueryItem] {
-        [URLQueryItem(name: "limit", value: "\(limit)"), URLQueryItem(name: "start", value: "\(start)")]
-    }
-    
     var httpMethod: HTTPMethod {
         switch self {
         case .loadLatestMarketData,
@@ -49,5 +45,7 @@ extension EndPoint: RestEndPointType {
     var header: [String : String] { ["X-CMC_PRO_API_KEY": apiKey] }
     var start: Int { counter.start }
     var limit: Int { counter.limit }
-    var parameters: String { "?limit=\(limit)&start=\(start)" }
+    var parameters: [URLQueryItem] {
+        [URLQueryItem(name: "limit", value: "\(limit)"), URLQueryItem(name: "start", value: "\(start)")]
+    }
 }

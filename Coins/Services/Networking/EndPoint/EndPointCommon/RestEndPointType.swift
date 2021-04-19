@@ -15,6 +15,5 @@ protocol RestEndPointType {
     var header: [String: String] { get }
     var start: Int { get }
     var limit: Int { get }
-    var parameters: String { get }
-    var testParameters: [URLQueryItem] { get }
+    var parameters: [URLQueryItem] { get }
 }

@@ -7,7 +7,7 @@
 
 protocol CurrencyListViewProtocol: class {
     func setupView()
-    func firstLoadCells(with currencies: CurrencyList)
-    func updateCells(with currencies: CurrencyList)
-    func scrollLoadCells(with newCurriencies: CurrencyList)
+    func initializeCells(with currencies: [CurrencyData])
+    func refreshCells(with currencies: [CurrencyData])
+    func didScrollCells(with currencies: [CurrencyData])
 }

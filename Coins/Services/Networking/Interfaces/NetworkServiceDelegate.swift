@@ -6,7 +6,5 @@
 //
 
 protocol NetworkServiceDelegate: class {
-    func firstLoad(_: NetworkService, with currencyData: CurrencyList?)
-    func scrollLoad(_: NetworkService, with currencyData: CurrencyList?)
-    func refreshLoad(_: NetworkService, with currencyData: CurrencyList?)
+    func sentToInteractor(_: NetworkService, parsedData: CurrencyList?, with task: NetworkService.LoadType)
 }
