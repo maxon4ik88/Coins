@@ -29,6 +29,7 @@ class CurrencyListPresenter: CurrencyListPresenterProtocol {
     
     func configureView() {
         view.setupView()
+        counter.loadType = .firstLoad
         interactor.downloadCurrencies(with: .firstLoad)
     }
     

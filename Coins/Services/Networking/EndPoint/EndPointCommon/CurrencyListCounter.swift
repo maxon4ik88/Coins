@@ -9,6 +9,7 @@ class CurrencyListCounter {
     
     // MARK: - Public (Properties)
     static let shared = CurrencyListCounter()
+    
     var loadType: LoadTypes {
         didSet {
             switch loadType {
@@ -16,24 +17,23 @@ class CurrencyListCounter {
                 start = 1
                 limit = totalLoads
             case .firstLoad:
-                totalLoads = 30
+                start = 1
+                limit = 30
+                totalLoads = limit
             case .scrollLoad:
-                if totalLoads == 30 {
-                    totalLoads += 1
-                    start = totalLoads
-                } else {
-                    start = totalLoads
-                }
+                totalLoads += 1
+                start = totalLoads
                 limit = 10
                 totalLoads += 10
             }
         }
     }
-    var start: Int = 1
-    var limit = 30
+    
+    var start = 0
+    var limit = 0
     
     // MARK: - Private (Properties)
-    private var totalLoads = 30
+    private var totalLoads = 0
     
     // MARK: - Init
     private init() {
