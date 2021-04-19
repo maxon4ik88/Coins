@@ -9,5 +9,5 @@ protocol CurrencyListPresenterProtocol: class {
     func configureView()
     func updateViewCells()
     func scrollLoadViewCells()
-    func currenciesDidReceive(currencies: CurrencyList, with type: SessionService.SessionType)
+    func currenciesDidReceive(currencies: CurrencyList, with type: NetworkService.LoadType)
 }

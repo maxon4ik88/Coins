@@ -37,7 +37,7 @@ class CurrencyListPresenter: CurrencyListPresenterProtocol {
         interactor.downloadCurrencies(with: .scrollLoad)
     }
     
-    func currenciesDidReceive(currencies: CurrencyList, with type: SessionService.SessionType) {
+    func currenciesDidReceive(currencies: CurrencyList, with type: NetworkService.LoadType) {
         DispatchQueue.main.async {
             switch type {
             case .firstLoad:

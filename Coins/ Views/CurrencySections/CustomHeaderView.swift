@@ -10,9 +10,35 @@ import UIKit
 class CustomHeaderView: UIView {
     
     // MARK: - Private (Properties)
-    private lazy var nameLabel = SectionCurrencyLabel()
-    private lazy var priceLabel = SectionPriceLabel()
-    private lazy var changesLabel = SectionChangesLabel()
+    private lazy var nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Currency"
+        label.font = .boldSystemFont(ofSize: 16)
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    private lazy var priceLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Price"
+        label.font = .boldSystemFont(ofSize: 16)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+
+    private lazy var changesLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Change"
+        label.font = .boldSystemFont(ofSize: 16)
+        label.textAlignment = .right
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
     
     // MARK: - Init
     override init(frame: CGRect) {

@@ -5,7 +5,7 @@
 //  Created by Maxim on 14.04.2021.
 //
 
-class CurrencyCellModel: BaseCellModel, CellIdentifiable {
+class MainCellModel: BaseCellModel, CellIdentifiable {
     
     // MARK: - Public (Properties)
     var currencyName: String

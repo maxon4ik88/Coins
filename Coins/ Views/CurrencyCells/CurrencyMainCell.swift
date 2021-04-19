@@ -10,10 +10,33 @@ import UIKit
 class CurrencyMainCell: CurrencyBaseCell {
     
     // MARK: - Private (Properties)
-    private lazy var nameLabel = CellNameLabel()
-    private lazy var priceLabel = CellPriceLabel()
-    private lazy var changesLabel = CellChangesLabel()
+    private lazy var nameLabel: UILabel = {
+       let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 14)
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
     
+    private lazy var priceLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 14)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    private lazy var changesLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 14)
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -28,7 +51,7 @@ class CurrencyMainCell: CurrencyBaseCell {
     
     // MARK: - CurrencyBaseCell
     override func updateViews() {
-        guard let model = model as? CurrencyCellModel else { return }
+        guard let model = model as? MainCellModel else { return }
         
         let name = model.currencyName
         let price = model.currencyPrice

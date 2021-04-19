@@ -19,6 +19,6 @@ class CurrencySectionModel: SectionRowsRepresentable {
     init(_ currency: CurrencyData?) {
         rows = [CellIdentifiable]()
         guard let currency = currency else { return }
-        rows.append(CurrencyCellModel(currency))
+        rows.append(MainCellModel(currency))
     }
 }

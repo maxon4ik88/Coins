@@ -31,7 +31,7 @@ class CurrencyListViewController: UIViewController, CurrencyListViewProtocol {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         tableView.register(CurrencyLoadCell.self, forCellReuseIdentifier: LoadCellModel.cellIdentifier)
-        tableView.register(CurrencyMainCell.self, forCellReuseIdentifier: CurrencyCellModel.cellIdentifier)
+        tableView.register(CurrencyMainCell.self, forCellReuseIdentifier: MainCellModel.cellIdentifier)
         
         return tableView
     }()
@@ -111,8 +111,8 @@ extension CurrencyListViewController: UITableViewDataSource {
             return cell
         }
         
-        let model = CurrencyCellModel(data[indexPath.row])
-        let cell = mainTableView.dequeueReusableCell(withIdentifier: CurrencyCellModel.cellIdentifier, for: indexPath) as! CurrencyMainCell
+        let model = MainCellModel(data[indexPath.row])
+        let cell = mainTableView.dequeueReusableCell(withIdentifier: MainCellModel.cellIdentifier, for: indexPath) as! CurrencyMainCell
         cell.model = model
         
         return cell

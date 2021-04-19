@@ -18,7 +18,7 @@ class CurrencyListInteractor: CurrencyListInteractorProtocol {
     }
     
     // MARK: - CurrencyListInteractorProtocol
-    func downloadCurrencies(with type: SessionService.SessionType) {
+    func downloadCurrencies(with type: NetworkService.LoadType) {
         network = NetworkService(with: type)
         network?.delegate = self
         network?.startTask()
