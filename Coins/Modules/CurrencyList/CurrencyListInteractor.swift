@@ -11,18 +11,17 @@ class CurrencyListInteractor: CurrencyListInteractorProtocol {
     weak var presenter: CurrencyListPresenterProtocol!
     
     // MARK: - Private (Properties)
-    private var network: NetworkService?
+    private var network = NetworkService()
     
     // MARK: - Init
     required init(presenter: CurrencyListPresenterProtocol) {
         self.presenter = presenter
+        network.delegate = self
     }
     
     // MARK: - CurrencyListInteractorProtocol
     func downloadCurrencies(with type: NetworkService.LoadType) {
-        network = NetworkService()
-        network?.delegate = self
-        network?.fetchData(of: .loadLatestMarketData, with: type)
+        network.fetchData(of: .loadLatestMarketData, with: type)
     }
 }
 
