@@ -20,9 +20,9 @@ class CurrencyListInteractor: CurrencyListInteractorProtocol {
     
     // MARK: - CurrencyListInteractorProtocol
     func downloadCurrencies(with type: NetworkService.LoadType) {
-        network = NetworkService(with: type)
+        network = NetworkService()
         network?.delegate = self
-        network?.startTask()
+        network?.fetchData(of: .loadLatestMarketData, with: type)
     }
 }
 

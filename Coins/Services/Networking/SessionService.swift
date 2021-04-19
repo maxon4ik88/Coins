@@ -27,7 +27,7 @@ class SessionService {
     }
     
     // MARK: - Public (Interface)
-    func fetchData() {
+    func sendRequest() {
         guard let url = components.url else { return }
         
         var request = URLRequest(url: url)
