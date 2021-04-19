@@ -23,32 +23,28 @@ class CurrencyListPresenter: CurrencyListPresenterProtocol {
     
     // MARK: - CurrencyListPresenterProtocol
     func refreshViewCells() {
-        counter.loadType = .update
-        interactor.downloadCurrencies(with: .updateData)
+        interactor.sendRequestToService(with: .update)
     }
     
     func configureView() {
         view.setupView()
-        counter.loadType = .firstLoad
-        interactor.downloadCurrencies(with: .firstLoad)
+        interactor.sendRequestToService(with: .load)
     }
     
     func didScrollViewCells() {
-        counter.loadType = .scrollLoad
-        interactor.downloadCurrencies(with: .scrollLoad)
+        interactor.sendRequestToService(with: .scroll)
     }
     
-    func didReceiveFromInteractor(parsedData: CurrencyList, with type: NetworkService.LoadType) {
-        guard let currencies = parsedData.data else { return }
+    func didReceiveFromInteractor(parsedData: [CurrencyData], with type: CurrencyService.TaskType) {
         
         DispatchQueue.main.async {
             switch type {
-            case .firstLoad:
-                self.view.initializeCells(with: currencies)
-            case .scrollLoad:
-                self.view.didScrollCells(with: currencies)
-            case .updateData:
-                self.view.refreshCells(with: currencies)
+            case .load:
+                self.view.initializeCells(with: parsedData)
+            case .scroll:
+                self.view.didScrollCells(with: parsedData)
+            case .update:
+                self.view.refreshCells(with: parsedData)
             }
         }
     }

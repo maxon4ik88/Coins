@@ -11,25 +11,23 @@ class CurrencyListInteractor: CurrencyListInteractorProtocol {
     weak var presenter: CurrencyListPresenterProtocol!
     
     // MARK: - Private (Properties)
-    private var network = NetworkService()
+    private var currencyService = CurrencyService()
     
     // MARK: - Init
     required init(presenter: CurrencyListPresenterProtocol) {
         self.presenter = presenter
-        network.delegate = self
+        currencyService.delegate = self
     }
     
     // MARK: - CurrencyListInteractorProtocol
-    func downloadCurrencies(with type: NetworkService.LoadType) {
-        network.fetchData(of: .loadLatestMarketData, with: type)
+    func sendRequestToService(with task: CurrencyService.TaskType) {
+        currencyService.beginRequest(of: task)
     }
 }
 
-// MARK: - NetworkManagerDelegate
-extension CurrencyListInteractor: NetworkServiceDelegate {
-    func sentToInteractor(_: NetworkService, parsedData: CurrencyList?, with task: NetworkService.LoadType) {
-        guard let parsedData = parsedData else { return }
-        
-        presenter.didReceiveFromInteractor(parsedData: parsedData, with: task)
+// MARK: - CurrencyServiceDelegate
+extension CurrencyListInteractor: CurrencyServiceDelegate {
+    func receivedDataFromService(_: CurrencyService, with currencyArray: [CurrencyData], to task: CurrencyService.TaskType) {
+        presenter.didReceiveFromInteractor(parsedData: currencyArray, with: task)
     }
 }

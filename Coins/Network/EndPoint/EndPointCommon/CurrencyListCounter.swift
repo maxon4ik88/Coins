@@ -10,21 +10,24 @@ class CurrencyListCounter {
     // MARK: - Public (Properties)
     static let shared = CurrencyListCounter()
     
-    var loadType: LoadTypes? {
+    var taskType: CurrencyService.TaskType? {
         didSet {
-            switch loadType {
-            case .update:
-                start = 1
-                limit = totalLoads
-            case .firstLoad:
+            switch taskType {
+            case .load:
                 start = 1
                 limit = 30
                 totalLoads = limit
-            case .scrollLoad:
+                print("COUNTER: type:\(taskType) start - \(start), limit - \(limit)")
+            case .update:
+                start = 1
+                limit = totalLoads
+                print("COUNTER: type:\(taskType) start - \(start), limit - \(limit)")
+            case .scroll:
                 totalLoads += 1
                 start = totalLoads
                 limit = 10
                 totalLoads += 10
+                print("COUNTER: type:\(taskType) start - \(start), limit - \(limit)")
             case .none:
                 return
             }
@@ -36,13 +39,4 @@ class CurrencyListCounter {
     
     // MARK: - Private (Properties)
     private var totalLoads = 0
-}
-
-// MARK: - LoadTypes
-extension CurrencyListCounter {
-    enum LoadTypes {
-        case update
-        case firstLoad
-        case scrollLoad
-    }
 }

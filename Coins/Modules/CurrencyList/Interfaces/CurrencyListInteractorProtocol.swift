@@ -6,5 +6,5 @@
 //
 
 protocol CurrencyListInteractorProtocol: class {
-    func downloadCurrencies(with type: NetworkService.LoadType)
+    func sendRequestToService(with task: CurrencyService.TaskType)
 }
