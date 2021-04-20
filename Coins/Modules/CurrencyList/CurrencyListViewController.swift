@@ -34,7 +34,22 @@ final class CurrencyListViewController: UIViewController, CurrencyListViewProtoc
         return tableView
     }()
     
-    private var currencyArray: [Currency] = []
+    private var currencyArray: [Currency] = [] {
+        willSet {
+            let previousCount = currencyArray.count
+            
+            switch newValue.count {
+            case 30 where previousCount == 0:
+                print("LOAD")
+            case previousCount + 10:
+                print("SCROLL")
+            default:
+                print("REFRESH")
+            }
+            print("DID_SET! And count = \(newValue.count), previous = \(previousCount)")
+        }
+    }
+    
     private var isFetching = false
     
     // MARK: - UIViewController
