@@ -7,7 +7,7 @@
 
 final class CurrencyListConfigurator: CurrencyListConfiguratorProtocol {
     
-    // MARK: CurrencyListConfiguratorProtocol
+    // MARK: - CurrencyListConfiguratorProtocol
     func configure() -> CurrencyListViewController {
         let viewController = CurrencyListViewController()
         let presenter = CurrencyListPresenter(view: viewController)

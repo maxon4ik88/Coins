@@ -29,7 +29,7 @@
 		AD3BF02B262DC47800A2FDB1 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3BF02A262DC47800A2FDB1 /* Router.swift */; };
 		AD3BF02E262DC55C00A2FDB1 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3BF02D262DC55C00A2FDB1 /* RequestManager.swift */; };
 		AD3BF036262DDF5F00A2FDB1 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3BF035262DDF5F00A2FDB1 /* CurrencyService.swift */; };
-		AD3BF045262DFFE200A2FDB1 /* CurrencyServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3BF044262DFFE200A2FDB1 /* CurrencyServiceDelegate.swift */; };
+		AD3BF04E262EF95F00A2FDB1 /* DataReceiverInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3BF04D262EF95F00A2FDB1 /* DataReceiverInterface.swift */; };
 		AD4F454726274B1B009BB030 /* CurrencyListConfiguratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F454626274B1B009BB030 /* CurrencyListConfiguratorProtocol.swift */; };
 		AD4F454B26274BD6009BB030 /* CurrencyListInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F454A26274BD6009BB030 /* CurrencyListInteractorProtocol.swift */; };
 		AD4F454E26274C11009BB030 /* CurrencyListPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F454D26274C11009BB030 /* CurrencyListPresenterProtocol.swift */; };
@@ -71,7 +71,7 @@
 		AD3BF02A262DC47800A2FDB1 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		AD3BF02D262DC55C00A2FDB1 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		AD3BF035262DDF5F00A2FDB1 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
-		AD3BF044262DFFE200A2FDB1 /* CurrencyServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServiceDelegate.swift; sourceTree = "<group>"; };
+		AD3BF04D262EF95F00A2FDB1 /* DataReceiverInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataReceiverInterface.swift; sourceTree = "<group>"; };
 		AD4F454626274B1B009BB030 /* CurrencyListConfiguratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListConfiguratorProtocol.swift; sourceTree = "<group>"; };
 		AD4F454A26274BD6009BB030 /* CurrencyListInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListInteractorProtocol.swift; sourceTree = "<group>"; };
 		AD4F454D26274C11009BB030 /* CurrencyListPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListPresenterProtocol.swift; sourceTree = "<group>"; };
@@ -221,9 +221,16 @@
 			isa = PBXGroup;
 			children = (
 				AD3BF035262DDF5F00A2FDB1 /* CurrencyService.swift */,
-				AD3BF044262DFFE200A2FDB1 /* CurrencyServiceDelegate.swift */,
 			);
 			path = CurrencyService;
+			sourceTree = "<group>";
+		};
+		AD3BF04C262EF86300A2FDB1 /* ServicesInterface */ = {
+			isa = PBXGroup;
+			children = (
+				AD3BF04D262EF95F00A2FDB1 /* DataReceiverInterface.swift */,
+			);
+			path = ServicesInterface;
 			sourceTree = "<group>";
 		};
 		AD4F454526274ACF009BB030 /* Interfaces */ = {
@@ -250,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				AD3BF03B262DEFD200A2FDB1 /* Services */,
+				AD3BF04C262EF86300A2FDB1 /* ServicesInterface */,
 				AD3BF039262DEF3600A2FDB1 /* Router */,
 				AD4F4560262755D8009BB030 /* EndPoint */,
 				871D60C725F5648600F9EE94 /* JSONModels */,
@@ -388,7 +396,6 @@
 				876FCB5125F67A9B0096F519 /* CurrencyHeaderView.swift in Sources */,
 				AD35EF772625F3B2005E7272 /* CurrencyListPresenter.swift in Sources */,
 				AD35EF742625F290005E7272 /* CurrencyListViewController.swift in Sources */,
-				AD3BF045262DFFE200A2FDB1 /* CurrencyServiceDelegate.swift in Sources */,
 				AD35EF5A26258CBA005E7272 /* RestEndPointType.swift in Sources */,
 				AD4F454B26274BD6009BB030 /* CurrencyListInteractorProtocol.swift in Sources */,
 				871D60A125F5235800F9EE94 /* AppDelegate.swift in Sources */,
@@ -400,6 +407,7 @@
 				ADED9C56262D6954002F50DA /* Usd.swift in Sources */,
 				AD3BF036262DDF5F00A2FDB1 /* CurrencyService.swift in Sources */,
 				AD4F454726274B1B009BB030 /* CurrencyListConfiguratorProtocol.swift in Sources */,
+				AD3BF04E262EF95F00A2FDB1 /* DataReceiverInterface.swift in Sources */,
 				ADED9C50262D6936002F50DA /* Currency.swift in Sources */,
 				AD76E35926299E9800328CD0 /* ModelRepresentable.swift in Sources */,
 				AD4F454E26274C11009BB030 /* CurrencyListPresenterProtocol.swift in Sources */,
