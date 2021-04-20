@@ -19,14 +19,17 @@ class CurrencyListCounter {
                 startOn = 1
                 limitOf = 30
                 totalLoads = limit
+                print("COUNTER: limit - \(limit), start - \(start)")
             case .update:
                 startOn = 1
-                limitOf = totalLoads
+                limitOf = totalLoads + pages
+                print("COUNTER: limit - \(limit), start - \(start)")
             case .scroll:
-                totalLoads += 1
-                startOn = totalLoads
+                pages += 1
+                startOn = totalLoads + pages
                 limitOf = 10
                 totalLoads += 10
+                print("COUNTER: limit - \(limit), start - \(start)")
             case .none:
                 return
             }
@@ -39,6 +42,7 @@ class CurrencyListCounter {
     
     // MARK: - Private (Properties)
     private var totalLoads = 0
+    private var pages = 0
     private var startOn = 0
     private var limitOf = 0
     
