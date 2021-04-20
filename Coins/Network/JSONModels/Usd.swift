@@ -7,9 +7,4 @@
 
 struct Usd: Codable {
     let price, percentChange1H: Double?
-
-    enum CodingKeys: String, CodingKey {
-        case price
-        case percentChange1H = "percent_change_1h"
-    }
 }

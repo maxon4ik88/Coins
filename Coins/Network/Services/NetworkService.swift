@@ -10,7 +10,11 @@ import Foundation
 class NetworkService {
     
     // MARK: - Public (Properties)
-    var localDecoder = JSONDecoder()
+    var localDecoder: JSONDecoder {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy  = .convertFromSnakeCase
+        return decoder
+    }
     
     // MARK: - Private (Properties)
     private let router = Router<EndPoint>()

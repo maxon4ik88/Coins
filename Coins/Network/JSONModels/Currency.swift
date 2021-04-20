@@ -8,9 +8,4 @@
 struct Currency: Codable {
     let name: String?
     let quote: Quote?
-
-    enum CodingKeys: String, CodingKey {
-        case name
-        case quote
-    }
 }

@@ -5,6 +5,8 @@
 //  Created by Maxim on 13.04.2021.
 //
 
+import Foundation
+
 class CurrencyListCounter {
     
     // MARK: - Public (Properties)
@@ -42,4 +44,11 @@ class CurrencyListCounter {
     
     // MARK: - Init
     private init() {}
+}
+
+// MARK: - NSCopying
+extension CurrencyListCounter: NSCopying {
+    func copy(with zone: NSZone? = nil) -> Any {
+        return self
+    }
 }
