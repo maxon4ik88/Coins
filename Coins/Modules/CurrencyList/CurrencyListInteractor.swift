@@ -5,7 +5,7 @@
 //  Created by Maxim on 13.04.2021.
 //
 
-class CurrencyListInteractor: CurrencyListInteractorProtocol {
+final class CurrencyListInteractor: CurrencyListInteractorProtocol {
     
     // MARK: - Public (Properties)
     weak var presenter: CurrencyListPresenterProtocol!
@@ -27,7 +27,7 @@ class CurrencyListInteractor: CurrencyListInteractorProtocol {
 
 // MARK: - CurrencyServiceDelegate
 extension CurrencyListInteractor: CurrencyServiceDelegate {
-    func receivedDataFromService(_: CurrencyService, with currencyArray: [CurrencyData], to task: CurrencyService.TaskType) {
-        presenter.didReceiveFromInteractor(parsedData: currencyArray, with: task)
+    func receivedDataFromService(_: CurrencyService, with currencyArray: [Currency], to task: CurrencyService.TaskType) {
+        presenter.didReceived(currencies: currencyArray, with: task)
     }
 }

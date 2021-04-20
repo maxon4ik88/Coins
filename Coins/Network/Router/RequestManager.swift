@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RequestManager<EndPoint: RestEndPointType> {
+final class RequestManager<EndPoint: RestEndPointType> {
     
     // MARK: - Public (Interface)
     func buildRequest(from endPoint: EndPoint) throws -> URLRequest {

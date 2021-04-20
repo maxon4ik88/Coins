@@ -10,7 +10,7 @@ import UIKit
 class CurrencyBaseViewCell: UITableViewCell, ModelRepresentable {
     
     // MARK: - ModelRepresentable
-    var model: CellIdentifiable? {
+    var cellModel: CellIdentifiable? {
         didSet { updateViews() }
     }
     

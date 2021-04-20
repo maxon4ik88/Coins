@@ -6,5 +6,5 @@
 //
 
 struct CurrencyList: Codable {
-    var data: [CurrencyData]?
+    var data: [Currency]?
 }

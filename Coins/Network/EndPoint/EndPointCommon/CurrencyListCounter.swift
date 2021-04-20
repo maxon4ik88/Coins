@@ -17,17 +17,14 @@ class CurrencyListCounter {
                 start = 1
                 limit = 30
                 totalLoads = limit
-                print("COUNTER: type:\(taskType) start - \(start), limit - \(limit)")
             case .update:
                 start = 1
                 limit = totalLoads
-                print("COUNTER: type:\(taskType) start - \(start), limit - \(limit)")
             case .scroll:
                 totalLoads += 1
                 start = totalLoads
                 limit = 10
                 totalLoads += 10
-                print("COUNTER: type:\(taskType) start - \(start), limit - \(limit)")
             case .none:
                 return
             }

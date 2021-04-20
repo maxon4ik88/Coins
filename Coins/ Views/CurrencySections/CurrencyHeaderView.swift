@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CurrencyHeaderView: UIView {
+final class CurrencyHeaderView: UIView {
     
     // MARK: - Private (Properties)
     private lazy var nameLabel: UILabel = {
@@ -43,7 +43,6 @@ class CurrencyHeaderView: UIView {
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         addSubviews()
         addLayouts()
     }

@@ -5,21 +5,25 @@
 //  Created by Maxim on 14.04.2021.
 //
 
-class CurrencyMainCellModel: BaseCellModel, CellIdentifiable {
+final class CurrencyMainCellModel: BaseCellModel, CellIdentifiable {
     
     // MARK: - Public (Properties)
-    var currencyName: String
-    var currencyPrice: String
-    var currencyPriceChanging: Double
+    var name: String
+    var price: String
+    var changing: Double
     
     // MARK: - CellIdentifiable
     static var cellIdentifier: String = "CurrencyCell" 
     
     // MARK: - Init
-    init(_ currency: CurrencyData?) {
-        currencyName = currency?.name ?? "no_data"
-        currencyPrice = "\(currency?.quote?.usd?.price?.rounded(to: 2) ?? 0)$"
-        currencyPriceChanging = currency?.quote?.usd?.percentChange1H ?? 0
+    init(currency: Currency) {
+        let name = currency.name ?? "no_data"
+        let price = currency.quote?.usd?.price ?? 0
+        let changing = currency.quote?.usd?.percentChange1H ?? 0
+        
+        self.name = name
+        self.price = "\(price.rounded(to: 2))$"
+        self.changing = changing
     }
 }
 

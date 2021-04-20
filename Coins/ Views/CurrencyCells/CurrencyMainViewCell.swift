@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CurrencyMainViewCell: CurrencyBaseViewCell {
+final class CurrencyMainViewCell: CurrencyBaseViewCell {
     
     // MARK: - Private (Properties)
     private lazy var nameLabel: UILabel = {
@@ -40,7 +40,6 @@ class CurrencyMainViewCell: CurrencyBaseViewCell {
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         addSubviews()
         addLayouts()
     }
@@ -51,11 +50,11 @@ class CurrencyMainViewCell: CurrencyBaseViewCell {
     
     // MARK: - CurrencyBaseCell
     override func updateViews() {
-        guard let model = model as? CurrencyMainCellModel else { return }
+        guard let cellModel = cellModel as? CurrencyMainCellModel else { return }
         
-        let name = model.currencyName
-        let price = model.currencyPrice
-        let priceChanging = model.currencyPriceChanging
+        let name = cellModel.name
+        let price = cellModel.price
+        let priceChanging = cellModel.changing
         let spacesCount = name.filter({ $0 == " "}).count + 1
         
         nameLabel.text = name

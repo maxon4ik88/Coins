@@ -5,7 +5,7 @@
 //  Created by Maxim on 13.04.2021.
 //
 
-class CurrencyListConfigurator: CurrencyListConfiguratorProtocol {
+final class CurrencyListConfigurator: CurrencyListConfiguratorProtocol {
     
     // MARK: CurrencyListConfiguratorProtocol
     func configure() -> CurrencyListViewController {

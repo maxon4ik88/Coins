@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CurrencyLoadViewCell: CurrencyBaseViewCell {
+final class CurrencyLoadViewCell: CurrencyBaseViewCell {
     
     // MARK: - Private (Properties)
     private lazy var activityIndicator: UIActivityIndicatorView = {
@@ -20,7 +20,6 @@ class CurrencyLoadViewCell: CurrencyBaseViewCell {
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         addSubviews()
         addLayouts()
     }
@@ -31,7 +30,7 @@ class CurrencyLoadViewCell: CurrencyBaseViewCell {
     
     // MARK: - CurrencyBaseCell
     override func updateViews() {
-        guard model is CurrencyLoadCellModel else { return }
+        guard cellModel is CurrencyLoadCellModel else { return }
         
         activityIndicator.startAnimating()
     }

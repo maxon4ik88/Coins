@@ -1,11 +1,11 @@
 //
-//  CurrencyData.swift
+//  Currency.swift
 //  Coins
 //
 //  Created by Maxim on 19.04.2021.
 //
 
-struct CurrencyData: Codable {
+struct Currency: Codable {
     let name: String?
     let quote: Quote?
 

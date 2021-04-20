@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CurrencyListPresenter: CurrencyListPresenterProtocol {
+final class CurrencyListPresenter: CurrencyListPresenterProtocol {
     
     // MARK: - Public (Properties)
     weak var view: CurrencyListViewProtocol!
@@ -22,7 +22,7 @@ class CurrencyListPresenter: CurrencyListPresenterProtocol {
     }
     
     // MARK: - CurrencyListPresenterProtocol
-    func refreshViewCells() {
+    func willRefreshView() {
         interactor.sendRequestToService(with: .update)
     }
     
@@ -31,20 +31,19 @@ class CurrencyListPresenter: CurrencyListPresenterProtocol {
         interactor.sendRequestToService(with: .load)
     }
     
-    func didScrollViewCells() {
+    func willScrollView() {
         interactor.sendRequestToService(with: .scroll)
     }
     
-    func didReceiveFromInteractor(parsedData: [CurrencyData], with type: CurrencyService.TaskType) {
-        
+    func didReceived(currencies currenciesArray: [Currency], with task: CurrencyService.TaskType) {
         DispatchQueue.main.async {
-            switch type {
+            switch task {
             case .load:
-                self.view.initializeCells(with: parsedData)
+                self.view.didLoadView(with: currenciesArray)
             case .scroll:
-                self.view.didScrollCells(with: parsedData)
+                self.view.didScrollView(with: currenciesArray)
             case .update:
-                self.view.refreshCells(with: parsedData)
+                self.view.didRefreshView(with: currenciesArray)
             }
         }
     }

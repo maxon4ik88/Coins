@@ -7,7 +7,7 @@
 
 protocol CurrencyListPresenterProtocol: class {
     func configureView()
-    func refreshViewCells()
-    func didScrollViewCells()
-    func didReceiveFromInteractor(parsedData: [CurrencyData], with type: CurrencyService.TaskType)
+    func willRefreshView()
+    func willScrollView()
+    func didReceived(currencies currencyArray: [Currency], with task: CurrencyService.TaskType)
 }
