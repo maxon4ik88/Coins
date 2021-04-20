@@ -19,13 +19,13 @@ final class CurrencyListPresenter: CurrencyListPresenterProtocol {
     }
     
     // MARK: - CurrencyListPresenterProtocol
-    func willRefreshView() {
-        interactor.sendRequestToService(with: .update)
-    }
-    
     func configureView() {
         view.setupView()
         interactor.sendRequestToService(with: .load)
+    }
+    
+    func willRefreshView() {
+        interactor.sendRequestToService(with: .update)
     }
     
     func willScrollView() {

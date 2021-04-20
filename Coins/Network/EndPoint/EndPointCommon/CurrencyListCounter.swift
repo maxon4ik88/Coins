@@ -14,16 +14,16 @@ class CurrencyListCounter {
         didSet {
             switch taskType {
             case .load:
-                start = 1
-                limit = 30
+                startOn = 1
+                limitOf = 30
                 totalLoads = limit
             case .update:
-                start = 1
-                limit = totalLoads
+                startOn = 1
+                limitOf = totalLoads
             case .scroll:
                 totalLoads += 1
-                start = totalLoads
-                limit = 10
+                startOn = totalLoads
+                limitOf = 10
                 totalLoads += 10
             case .none:
                 return
@@ -31,9 +31,15 @@ class CurrencyListCounter {
         }
     }
     
-    var start = 0
-    var limit = 0
+    
+    var start: Int { startOn }
+    var limit: Int { limitOf }
     
     // MARK: - Private (Properties)
     private var totalLoads = 0
+    private var startOn = 0
+    private var limitOf = 0
+    
+    // MARK: - Init
+    private init() {}
 }

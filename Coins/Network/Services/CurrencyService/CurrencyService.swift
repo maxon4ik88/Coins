@@ -5,8 +5,6 @@
 //  Created by Maxim on 19.04.2021.
 //
 
-import Foundation
-
 final class CurrencyService: NetworkService {
     
     // MARK: Public (Properties)
