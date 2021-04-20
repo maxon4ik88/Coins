@@ -6,5 +6,5 @@
 //
 
 protocol CurrencyServiceDelegate: class {
-    func receivedDataFromService(_: CurrencyService, with currencyArray: [Currency], to task: CurrencyService.TaskType)
+    func requestCompleted(_: CurrencyService, with currencyArray: [Currency], of task: CurrencyService.TaskType)
 }

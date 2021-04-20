@@ -16,7 +16,7 @@ final class CurrencyService: NetworkService {
     private let counter = CurrencyListCounter.shared
     
     // MARK: Public (Interface)
-    func beginRequest(of task: TaskType) {
+    func beginRequest(with task: TaskType) {
         counter.taskType = task
         
         sendRequest(for: .loadLatestMarketData) { data in
@@ -24,7 +24,7 @@ final class CurrencyService: NetworkService {
             guard let parsedData = try? self.localDecoder.decode(CurrencyList.self, from: data) else { return }
             guard let currencyArray = parsedData.data else { return }
             
-            self.delegate?.receivedDataFromService(self, with: currencyArray, to: task)
+            self.delegate?.requestCompleted(self, with: currencyArray, of: task)
         }
     }
 }

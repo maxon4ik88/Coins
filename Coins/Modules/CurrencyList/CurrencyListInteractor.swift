@@ -21,13 +21,13 @@ final class CurrencyListInteractor: CurrencyListInteractorProtocol {
     
     // MARK: - CurrencyListInteractorProtocol
     func sendRequestToService(with task: CurrencyService.TaskType) {
-        currencyService.beginRequest(of: task)
+        currencyService.beginRequest(with: task)
     }
 }
 
 // MARK: - CurrencyServiceDelegate
 extension CurrencyListInteractor: CurrencyServiceDelegate {
-    func receivedDataFromService(_: CurrencyService, with currencyArray: [Currency], to task: CurrencyService.TaskType) {
+    func requestCompleted(_: CurrencyService, with currencyArray: [Currency], of task: CurrencyService.TaskType) {
         presenter.didReceived(currencies: currencyArray, with: task)
     }
 }
