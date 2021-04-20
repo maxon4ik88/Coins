@@ -13,9 +13,6 @@ final class CurrencyListPresenter: CurrencyListPresenterProtocol {
     weak var view: CurrencyListViewProtocol!
     var interactor: CurrencyListInteractorProtocol!
     
-    // MARK: - Private (Properties)
-    private let counter = CurrencyListCounter.shared
-    
     // MARK: - Init
     required init(view: CurrencyListViewProtocol) {
         self.view = view
