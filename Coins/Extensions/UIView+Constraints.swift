@@ -8,12 +8,22 @@
 import UIKit
 
 extension UIView {
-    func anchor (top: NSLayoutYAxisAnchor?, left: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, right: NSLayoutXAxisAnchor?, paddingTop: CGFloat, paddingLeft: CGFloat, paddingBottom: CGFloat, paddingRight: CGFloat, width: CGFloat, height: CGFloat, enableInsets: Bool) {
-        var topInset = CGFloat(0)
-        var bottomInset = CGFloat(0)
+    func anchor (top: NSLayoutYAxisAnchor?,
+                 left: NSLayoutXAxisAnchor?,
+                 bottom: NSLayoutYAxisAnchor?,
+                 right: NSLayoutXAxisAnchor?,
+                 paddingTop: CGFloat,
+                 paddingLeft: CGFloat,
+                 paddingBottom: CGFloat,
+                 paddingRight: CGFloat,
+                 width: CGFloat,
+                 height: CGFloat,
+                 enableInsets: Bool) {
+        var topInset = CGFloat(0.0)
+        var bottomInset = CGFloat(0.0)
         
         if #available(iOS 13, *), enableInsets {
-            let insets = self.safeAreaInsets
+            let insets = safeAreaInsets
             topInset = insets.top
             bottomInset = insets.bottom
         }
@@ -21,11 +31,11 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
         
         if let top = top {
-            self.topAnchor.constraint(equalTo: top, constant: paddingTop+topInset).isActive = true
+            topAnchor.constraint(equalTo: top, constant: paddingTop + topInset).isActive = true
         }
         
         if let left = left {
-            self.leftAnchor.constraint(equalTo: left, constant: paddingLeft).isActive = true
+            leftAnchor.constraint(equalTo: left, constant: paddingLeft).isActive = true
         }
         
         if let right = right {
@@ -33,14 +43,14 @@ extension UIView {
         }
         
         if let bottom = bottom {
-            bottomAnchor.constraint(equalTo: bottom, constant: -paddingBottom-bottomInset).isActive = true
+            bottomAnchor.constraint(equalTo: bottom, constant: -paddingBottom - bottomInset).isActive = true
         }
         
-        if height != 0 {
+        if height != 0.0 {
             heightAnchor.constraint(equalToConstant: height).isActive = true
         }
         
-        if width != 0 {
+        if width != 0.0 {
             widthAnchor.constraint(equalToConstant: width).isActive = true
         }
     }

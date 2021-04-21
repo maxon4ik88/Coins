@@ -16,20 +16,18 @@ final class CurrencyListInteractor: CurrencyListInteractorProtocol {
     // MARK: - Init
     required init(presenter: CurrencyListPresenterProtocol) {
         self.presenter = presenter
-        currencyService.receiver = self
+        currencyService.delegate = self
     }
     
     // MARK: - CurrencyListInteractorProtocol
     func loadCurrencies(with taskType: CurrencyService.TaskType) {
-        currencyService.beginRequest(with: taskType)
+        currencyService.fetchCurrencies(for: taskType)
     }
 }
 
 // MARK: - CurrencyServiceDelegate
-extension CurrencyListInteractor: DataReceiverInterface {
-    func startTask(_ fromService: NetworkService, with data: Any) {
-        guard let currencies = data as? [Currency] else { return }
-        
-        presenter.updateViewData(with: currencies)
+extension CurrencyListInteractor: CurrencyServiceDelegate {
+    func startTask(fromService: NetworkService, with currencies: [Currency], after taskType: CurrencyService.TaskType) {
+        presenter.update(currencies: currencies, after: taskType)
     }
 }

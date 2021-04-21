@@ -23,9 +23,9 @@ final class CurrencyListPresenter: CurrencyListPresenterProtocol {
         interactor.loadCurrencies(with: taskType)
     }
     
-    func updateViewData(with currencyArray: [Currency]) {
-        DispatchQueue.main.async {
-            self.view.getCurrencies(currencies: currencyArray)
+    func update(currencies: [Currency], after taskType: CurrencyService.TaskType) {
+        DispatchQueue.main.async { [weak self] in
+            self?.view.updateTableView(with: currencies, after: taskType)
         }
     }
 }

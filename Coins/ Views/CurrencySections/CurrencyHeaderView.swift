@@ -13,7 +13,7 @@ final class CurrencyHeaderView: UIView {
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Currency"
-        label.font = .boldSystemFont(ofSize: 16)
+        label.font = .boldSystemFont(ofSize: 16.0)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -23,17 +23,17 @@ final class CurrencyHeaderView: UIView {
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.text = "Price"
-        label.font = .boldSystemFont(ofSize: 16)
+        label.font = .boldSystemFont(ofSize: 16.0)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
-
+    
     private lazy var changesLabel: UILabel = {
         let label = UILabel()
         label.text = "Change"
-        label.font = .boldSystemFont(ofSize: 16)
+        label.font = .boldSystemFont(ofSize: 16.0)
         label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -43,8 +43,7 @@ final class CurrencyHeaderView: UIView {
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubviews()
-        addLayouts()
+        setupView()
     }
     
     required init?(coder: NSCoder) {
@@ -52,6 +51,11 @@ final class CurrencyHeaderView: UIView {
     }
     
     // MARK: - Private (Interface)
+    private func setupView() {
+        addSubviews()
+        addLayouts()
+    }
+    
     private func addSubviews() {
         addSubview(nameLabel)
         addSubview(priceLabel)
@@ -60,40 +64,40 @@ final class CurrencyHeaderView: UIView {
     
     private func addLayouts() {
         nameLabel.anchor(top: topAnchor,
-                                 left: leftAnchor,
-                                 bottom: bottomAnchor,
-                                 right: nil,
-                                 paddingTop: 5,
-                                 paddingLeft: 10,
-                                 paddingBottom: 5,
-                                 paddingRight: 0,
-                                 width: 120,
-                                 height: 0,
-                                 enableInsets: false)
+                         left: leftAnchor,
+                         bottom: bottomAnchor,
+                         right: nil,
+                         paddingTop: 5.0,
+                         paddingLeft: 10.0,
+                         paddingBottom: 5.0,
+                         paddingRight: 0.0,
+                         width: 120.0,
+                         height: 0.0,
+                         enableInsets: false)
         
         priceLabel.anchor(top: topAnchor,
-                                  left: nil,
-                                  bottom: bottomAnchor,
-                                  right: nil,
-                                  paddingTop: 5,
-                                  paddingLeft: 0,
-                                  paddingBottom: 5,
-                                  paddingRight: 0,
-                                  width: 90,
-                                  height: 0,
-                                  enableInsets: false)
-        priceLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor).isActive = true
+                          left: nil,
+                          bottom: bottomAnchor,
+                          right: nil,
+                          paddingTop: 5.0,
+                          paddingLeft: 0.0,
+                          paddingBottom: 5.0,
+                          paddingRight: 0.0,
+                          width: 90.0,
+                          height: 0.0,
+                          enableInsets: false)
+        priceLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor).isActive = true
         
         changesLabel.anchor(top: topAnchor,
-                                    left: nil,
-                                    bottom: bottomAnchor,
-                                    right: rightAnchor,
-                                    paddingTop: 5,
-                                    paddingLeft: 0,
-                                    paddingBottom: 5,
-                                    paddingRight: 10,
-                                    width: 70,
-                                    height: 0,
-                                    enableInsets: false)
+                            left: nil,
+                            bottom: bottomAnchor,
+                            right: rightAnchor,
+                            paddingTop: 5.0,
+                            paddingLeft: 0.0,
+                            paddingBottom: 5.0,
+                            paddingRight: 10.0,
+                            width: 70.0,
+                            height: 0.0,
+                            enableInsets: false)
     }
 }

@@ -7,5 +7,5 @@
 
 protocol CurrencyListPresenterProtocol: class {
     func completeLoading(in taskType: CurrencyService.TaskType)
-    func updateViewData(with currencyArray: [Currency])
+    func update(currencies: [Currency], after taskType: CurrencyService.TaskType)
 }

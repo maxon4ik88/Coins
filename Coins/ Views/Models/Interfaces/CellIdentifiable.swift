@@ -6,5 +6,5 @@
 //
 
 protocol CellIdentifiable {
-    static var cellIdentifier: String { get }
+    static var identifier: String { get }
 }

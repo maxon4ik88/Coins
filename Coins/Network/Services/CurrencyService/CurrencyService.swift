@@ -8,21 +8,21 @@
 final class CurrencyService: NetworkService {
     
     // MARK: - Public (Properties)
-    weak var receiver: DataReceiverInterface?
+    weak var delegate: CurrencyServiceDelegate!
     
     // MARK: - Private (Properties)
     private let counter = CurrencyListCounter.shared
     
     // MARK: - Public (Interface)
-    func beginRequest(with task: TaskType) {
-        counter.taskType = task
+    func fetchCurrencies(for taskType: TaskType) {
+        counter.taskType = taskType
         
-        sendRequest(for: .loadLatestMarketData) { data in
+        sendRequest(for: .loadLatestMarketData) { [weak self] data in
             guard let data = data else { return }
-            guard let parsedData = try? self.localDecoder.decode(CurrencyList.self, from: data) else { return }
-            guard let currencyArray = parsedData.data else { return }
+            guard let parsedData = try? self?.localDecoder.decode(CurrencyList.self, from: data) else { return }
+            guard let currencies = parsedData.data else { return }
             
-            self.receiver?.startTask(self, with: currencyArray)
+            self?.delegate?.startTask(fromService: self!, with: currencies, after: taskType)
         }
     }
 }
