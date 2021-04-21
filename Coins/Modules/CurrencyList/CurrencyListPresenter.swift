@@ -19,24 +19,13 @@ final class CurrencyListPresenter: CurrencyListPresenterProtocol {
     }
     
     // MARK: - CurrencyListPresenterProtocol
-    func fetchRequest(with taskType: CurrencyService.TaskType) {
-        interactor.sendRequestToService(with: taskType)
+    func completeLoading(in taskType: CurrencyService.TaskType) {
+        interactor.loadCurrencies(with: taskType)
     }
     
     func updateViewData(with currencyArray: [Currency]) {
-        let task = CurrencyListCounter.shared.taskType
-        
         DispatchQueue.main.async {
-            switch task {
-            case .load:
-                self.view.finishLoad(with: currencyArray)
-            case .scroll:
-                self.view.finishScroll(with: currencyArray)
-            case .update:
-                self.view.finishRefresh(with: currencyArray)
-            case .none:
-                return
-            }
+            self.view.getCurrencies(currencies: currencyArray)
         }
     }
 }

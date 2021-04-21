@@ -20,8 +20,8 @@ final class CurrencyListInteractor: CurrencyListInteractorProtocol {
     }
     
     // MARK: - CurrencyListInteractorProtocol
-    func sendRequestToService(with task: CurrencyService.TaskType) {
-        currencyService.beginRequest(with: task)
+    func loadCurrencies(with taskType: CurrencyService.TaskType) {
+        currencyService.beginRequest(with: taskType)
     }
 }
 
