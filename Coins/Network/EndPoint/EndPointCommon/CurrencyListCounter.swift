@@ -21,9 +21,10 @@ class CurrencyListCounter {
                 totalLoads = limit
             case .update:
                 startOn = 1
-                limitOf = totalLoads
+                limitOf = totalLoads - pages
             case .scroll:
                 totalLoads += 1
+                pages += 1
                 startOn = totalLoads
                 limitOf = 10
                 totalLoads += 10
@@ -39,6 +40,7 @@ class CurrencyListCounter {
     
     // MARK: - Private (Properties)
     private var totalLoads = 0
+    private var pages = 0
     private var startOn = 0
     private var limitOf = 0
     
