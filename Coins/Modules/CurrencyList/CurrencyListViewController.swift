@@ -1,16 +1,16 @@
 //
-//  CurrencyListViewController.swift
+//  CurrencyLIstViewController.swift
 //  Coins
 //
-//  Created by Maxim on 13.04.2021.
+//  Created by Maxim on 22.04.2021.
 //
 
 import UIKit
 
-final class CurrencyListViewController: UIViewController, CurrencyListViewProtocol {
+final class CurrencyListViewController: UIViewController, ViewInterface {
     
     // MARK: - Public (Properties)
-    var presenter: CurrencyListPresenterProtocol!
+    var presenter: CurrencyListPresenterViewInterface!
     
     // MARK: - Private (Properties)
     private lazy var refreshControl: UIRefreshControl = {
@@ -45,7 +45,7 @@ final class CurrencyListViewController: UIViewController, CurrencyListViewProtoc
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.completeLoading(in: .appear)
+        presenter.handleOnAppear()
     }
     
     // MARK: - CurrencyListViewProtocol
@@ -98,7 +98,7 @@ final class CurrencyListViewController: UIViewController, CurrencyListViewProtoc
     }
     
     @objc private func updateCurrencies() {
-        presenter.completeLoading(in: .update)
+        presenter.updateAllCurrencies()
     }
 }
 
@@ -150,7 +150,7 @@ extension CurrencyListViewController: UITableViewDelegate {
         
         if (currentPosition > availableSpace) && !isFetching {
             isFetching.toggle()
-            presenter.completeLoading(in: .scroll)
+            presenter.loadNewCurrencies()
         }
     }
 }

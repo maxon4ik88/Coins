@@ -19,8 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        let currencyListConfigurator = CurrencyListConfigurator()
-        let currencyListViewController = currencyListConfigurator.configure()
+        let currencyListModule = CurrencyListModule()
+        let currencyListViewController = currencyListModule.build()
         let newNavigationController = UINavigationController(rootViewController: currencyListViewController)
         
         window?.makeKeyAndVisible()

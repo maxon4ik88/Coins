@@ -12,7 +12,7 @@ class CurrencyListCounter {
     // MARK: - Public (Properties)
     static let shared = CurrencyListCounter()
     
-    var taskType: CurrencyService.TaskType? {
+    var taskType: CurrencyService.TaskType = .appear {
         didSet {
             switch taskType {
             case .appear:
@@ -28,12 +28,9 @@ class CurrencyListCounter {
                 startOn = totalLoads
                 limitOf = 10
                 totalLoads += 10
-            case .none:
-                return
             }
         }
     }
-    
     
     var start: Int { startOn }
     var limit: Int { limitOf }
