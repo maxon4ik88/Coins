@@ -15,7 +15,7 @@ final class CurrencyListViewController: UIViewController, CurrencyListViewProtoc
     // MARK: - Private (Properties)
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(updateData), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(updateCurrencies), for: .valueChanged)
         
         return refreshControl
     }()
@@ -45,14 +45,14 @@ final class CurrencyListViewController: UIViewController, CurrencyListViewProtoc
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.completeLoading(in: .load)
+        presenter.completeLoading(in: .appear)
     }
     
     // MARK: - CurrencyListViewProtocol
     func updateTableView(with currencies: [Currency], after taskType: CurrencyService.TaskType) {
         switch taskType {
-        case .load:
-            completeLoad(with: currencies)
+        case .appear:
+            completeAppear(with: currencies)
         case .scroll:
             completeScroll(with: currencies)
         case .update:
@@ -80,7 +80,7 @@ final class CurrencyListViewController: UIViewController, CurrencyListViewProtoc
         ])
     }
     
-    private func completeLoad(with currencies: [Currency]) {
+    private func completeAppear(with currencies: [Currency]) {
         self.currencies = currencies
         mainTableView.reloadData()
     }
@@ -97,7 +97,7 @@ final class CurrencyListViewController: UIViewController, CurrencyListViewProtoc
         mainTableView.reloadData()
     }
     
-    @objc private func updateData() {
+    @objc private func updateCurrencies() {
         presenter.completeLoading(in: .update)
     }
 }

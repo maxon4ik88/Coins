@@ -15,7 +15,7 @@ class CurrencyListCounter {
     var taskType: CurrencyService.TaskType? {
         didSet {
             switch taskType {
-            case .load:
+            case .appear:
                 startOn = 1
                 limitOf = 30
                 totalLoads = limit

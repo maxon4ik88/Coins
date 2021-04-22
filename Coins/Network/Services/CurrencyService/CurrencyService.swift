@@ -30,7 +30,7 @@ final class CurrencyService: NetworkService {
 // MARK: - CurrencyService.TaskType
 extension CurrencyService {
     enum TaskType {
-        case load
+        case appear
         case scroll
         case update
     }
