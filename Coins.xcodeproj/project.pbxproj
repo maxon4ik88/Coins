@@ -12,7 +12,6 @@
 		871D60AA25F5235900F9EE94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 871D60A925F5235900F9EE94 /* Assets.xcassets */; };
 		871D60AD25F5235900F9EE94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 871D60AB25F5235900F9EE94 /* LaunchScreen.storyboard */; };
 		871D60CA25F5665900F9EE94 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871D60C925F5665900F9EE94 /* UIView+Constraints.swift */; };
-		876FCB5125F67A9B0096F519 /* CurrencyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876FCB5025F67A9B0096F519 /* CurrencyHeaderView.swift */; };
 		87D2959325F78FFE00499BB4 /* Double+rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2959225F78FFE00499BB4 /* Double+rounded.swift */; };
 		AD092064262731E8006A273D /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AD092063262731E8006A273D /* .gitignore */; };
 		AD35EF5A26258CBA005E7272 /* RestEndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD35EF5926258CBA005E7272 /* RestEndPointType.swift */; };
@@ -43,6 +42,8 @@
 		ADC05D822631C45A006F35DB /* CurrencyListInteractorPresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC05D812631C45A006F35DB /* CurrencyListInteractorPresenterInterface.swift */; };
 		ADC05D852631C481006F35DB /* CurrencyListPresenterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC05D842631C481006F35DB /* CurrencyListPresenterInteractor.swift */; };
 		ADC05D922631EA93006F35DB /* CurrencyListPresenterViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC05D912631EA93006F35DB /* CurrencyListPresenterViewInterface.swift */; };
+		ADE7579F2632B2DA0095A816 /* CurrencyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE7579E2632B2DA0095A816 /* CurrencyHeader.swift */; };
+		ADE757A32632BE7E0095A816 /* CurrencyHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE757A22632BE7E0095A816 /* CurrencyHeaderModel.swift */; };
 		ADED9C4D262D6926002F50DA /* CurrencyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADED9C4C262D6926002F50DA /* CurrencyList.swift */; };
 		ADED9C50262D6936002F50DA /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADED9C4F262D6936002F50DA /* Currency.swift */; };
 		ADED9C53262D6946002F50DA /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADED9C52262D6946002F50DA /* Quote.swift */; };
@@ -57,7 +58,6 @@
 		871D60AC25F5235900F9EE94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		871D60AE25F5235900F9EE94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		871D60C925F5665900F9EE94 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
-		876FCB5025F67A9B0096F519 /* CurrencyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHeaderView.swift; sourceTree = "<group>"; };
 		87D2959225F78FFE00499BB4 /* Double+rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+rounded.swift"; sourceTree = "<group>"; };
 		AD092063262731E8006A273D /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		AD35EF5926258CBA005E7272 /* RestEndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestEndPointType.swift; sourceTree = "<group>"; };
@@ -88,6 +88,8 @@
 		ADC05D812631C45A006F35DB /* CurrencyListInteractorPresenterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListInteractorPresenterInterface.swift; sourceTree = "<group>"; };
 		ADC05D842631C481006F35DB /* CurrencyListPresenterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListPresenterInteractor.swift; sourceTree = "<group>"; };
 		ADC05D912631EA93006F35DB /* CurrencyListPresenterViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListPresenterViewInterface.swift; sourceTree = "<group>"; };
+		ADE7579E2632B2DA0095A816 /* CurrencyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHeader.swift; sourceTree = "<group>"; };
+		ADE757A22632BE7E0095A816 /* CurrencyHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHeaderModel.swift; sourceTree = "<group>"; };
 		ADED9C4C262D6926002F50DA /* CurrencyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyList.swift; sourceTree = "<group>"; };
 		ADED9C4F262D6936002F50DA /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		ADED9C52262D6946002F50DA /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
@@ -271,12 +273,12 @@
 			path = Interfaces;
 			sourceTree = "<group>";
 		};
-		ADA12C222628B253001A756A /* CurrencySections */ = {
+		ADA12C222628B253001A756A /* CurrencyHeader */ = {
 			isa = PBXGroup;
 			children = (
-				876FCB5025F67A9B0096F519 /* CurrencyHeaderView.swift */,
+				ADE7579E2632B2DA0095A816 /* CurrencyHeader.swift */,
 			);
-			path = CurrencySections;
+			path = CurrencyHeader;
 			sourceTree = "<group>";
 		};
 		ADC05D5C2631B029006F35DB /* VIPER */ = {
@@ -295,10 +297,18 @@
 			isa = PBXGroup;
 			children = (
 				ADC05D842631C481006F35DB /* CurrencyListPresenterInteractor.swift */,
-				ADC05D812631C45A006F35DB /* CurrencyListInteractorPresenterInterface.swift */,
 				ADC05D912631EA93006F35DB /* CurrencyListPresenterViewInterface.swift */,
+				ADC05D812631C45A006F35DB /* CurrencyListInteractorPresenterInterface.swift */,
 			);
 			path = Interface;
+			sourceTree = "<group>";
+		};
+		ADE757A52632BE850095A816 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				ADE757A22632BE7E0095A816 /* CurrencyHeaderModel.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		E99ED9A82626376000881C7E /* Models */ = {
@@ -306,6 +316,7 @@
 			children = (
 				AD76E35426299E6800328CD0 /* Interfaces */,
 				E99ED9A92626381B00881C7E /* Cell */,
+				ADE757A52632BE850095A816 /* Header */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -322,7 +333,7 @@
 		E9A9B57C262B407700C4153C /*  Views */ = {
 			isa = PBXGroup;
 			children = (
-				ADA12C222628B253001A756A /* CurrencySections */,
+				ADA12C222628B253001A756A /* CurrencyHeader */,
 				AD35EF812626D2D5005E7272 /* CurrencyCells */,
 				E99ED9A82626376000881C7E /* Models */,
 			);
@@ -401,7 +412,6 @@
 			files = (
 				AD76C5F4262496C500DC4B47 /* EndPoint.swift in Sources */,
 				AD3BF02B262DC47800A2FDB1 /* Router.swift in Sources */,
-				876FCB5125F67A9B0096F519 /* CurrencyHeaderView.swift in Sources */,
 				ADC05D732631C107006F35DB /* CurrencyListInteractor.swift in Sources */,
 				ADC05D852631C481006F35DB /* CurrencyListPresenterInteractor.swift in Sources */,
 				AD35EF5A26258CBA005E7272 /* RestEndPointType.swift in Sources */,
@@ -425,6 +435,7 @@
 				ADA12C202628AEB5001A756A /* CurrencyLoadCellModel.swift in Sources */,
 				ADC05D6C2631BE79006F35DB /* CurrencyListModule.swift in Sources */,
 				ADC05D622631B355006F35DB /* ViewInterface.swift in Sources */,
+				ADE757A32632BE7E0095A816 /* CurrencyHeaderModel.swift in Sources */,
 				ADC05D702631C01F006F35DB /* CurrencyListPresenter.swift in Sources */,
 				ADED9C4D262D6926002F50DA /* CurrencyList.swift in Sources */,
 				AD35EF5E26258D24005E7272 /* HTTPMethod.swift in Sources */,
@@ -432,6 +443,7 @@
 				AD35EF7F2626CE83005E7272 /* CurrencyMainCellModel.swift in Sources */,
 				AD3BF027262DC01E00A2FDB1 /* NetworkService.swift in Sources */,
 				87D2959325F78FFE00499BB4 /* Double+rounded.swift in Sources */,
+				ADE7579F2632B2DA0095A816 /* CurrencyHeader.swift in Sources */,
 				AD35EF652625B80E005E7272 /* CurrencyListCounter.swift in Sources */,
 				871D60CA25F5665900F9EE94 /* UIView+Constraints.swift in Sources */,
 				ADED9C53262D6946002F50DA /* Quote.swift in Sources */,

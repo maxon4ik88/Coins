@@ -30,6 +30,7 @@ final class CurrencyListViewController: UIViewController, ViewInterface {
         
         tableView.register(CurrencyLoadViewCell.self, forCellReuseIdentifier: CurrencyLoadCellModel.identifier)
         tableView.register(CurrencyMainViewCell.self, forCellReuseIdentifier: CurrencyMainCellModel.identifier)
+        tableView.register(CurrencyHeaderView.self, forHeaderFooterViewReuseIdentifier: CurrencyHeaderModel.identifier)
         
         return tableView
     }()
@@ -131,10 +132,7 @@ extension CurrencyListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension CurrencyListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = CurrencyHeaderView(frame: CGRect(x: 0.0, y: 0.0,
-                                                          width: tableView.frame.size.width,
-                                                          height: tableView.frame.size.height))
-        headerView.backgroundColor = .systemGray6
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: CurrencyHeaderModel.identifier) as! CurrencyHeaderView
         return section == 0 ? headerView : nil
     }
     

@@ -24,7 +24,7 @@ extension CurrencyListInteractor: CurrencyListInteractorPresenterInterface {
 
 // MARK: - CurrencyServiceDelegate
 extension CurrencyListInteractor: CurrencyServiceDelegate {
-    func startTask(fromService: NetworkService, with currencies: [Currency]) {
+    func requestCompleted(fromService: NetworkService, with currencies: [Currency]) {
         presenter.update(currencies: currencies)
     }
 }

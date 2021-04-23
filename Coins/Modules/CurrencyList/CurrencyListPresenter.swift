@@ -36,6 +36,7 @@ extension CurrencyListPresenter: CurrencyListPresenterViewInterface {
     }
 }
 
+// MARK: - CurrencyListPresenterInteractorInterface
 extension CurrencyListPresenter: CurrencyListPresenterInteractorInterface {
     func update(currencies: [Currency]) {
         DispatchQueue.main.async { [weak self] in

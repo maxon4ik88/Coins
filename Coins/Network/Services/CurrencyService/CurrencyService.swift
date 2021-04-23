@@ -22,7 +22,7 @@ final class CurrencyService: NetworkService {
             guard let parsedData = try? self?.localDecoder.decode(CurrencyList.self, from: data) else { return }
             guard let currencies = parsedData.data else { return }
             
-            self?.delegate?.startTask(fromService: self!, with: currencies)
+            self?.delegate?.requestCompleted(fromService: self!, with: currencies)
         }
     }
 }

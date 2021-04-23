@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CurrencyServiceDelegate: class {
-    func startTask(fromService: NetworkService, with currencies: [Currency])
+    func requestCompleted(fromService: NetworkService, with currencies: [Currency])
 }
