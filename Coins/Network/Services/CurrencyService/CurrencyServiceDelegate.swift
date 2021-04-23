@@ -2,9 +2,11 @@
 //  CurrencyServiceDelegate.swift
 //  Coins
 //
-//  Created by Maxim on 19.04.2021.
+//  Created by Maxim on 21.04.2021.
 //
 
+import Foundation
+
 protocol CurrencyServiceDelegate: class {
-    func requestCompleted(_ service: CurrencyService, with currencyArray: [Currency], of task: CurrencyService.TaskType)
+    func requestCompleted(fromService: NetworkService, with currencies: [Currency])
 }

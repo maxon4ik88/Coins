@@ -19,32 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        let currencyListConfigurator = CurrencyListConfigurator()
-        let currencyListViewController = currencyListConfigurator.configure()
+        let currencyListModule = CurrencyListModule()
+        let currencyListViewController = currencyListModule.build()
         let newNavigationController = UINavigationController(rootViewController: currencyListViewController)
         
         window?.makeKeyAndVisible()
         window?.rootViewController = newNavigationController
     }
-    
-    func sceneDidDisconnect(_ scene: UIScene) {
-        
-    }
-    
-    func sceneDidBecomeActive(_ scene: UIScene) {
-        
-    }
-    
-    func sceneWillResignActive(_ scene: UIScene) {
-        
-    }
-    
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        
-    }
-    
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        
-    }
 }
-

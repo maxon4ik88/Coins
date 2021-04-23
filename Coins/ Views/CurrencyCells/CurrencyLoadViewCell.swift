@@ -20,8 +20,7 @@ final class CurrencyLoadViewCell: CurrencyBaseViewCell {
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubviews()
-        addLayouts()
+        setupView()
     }
     
     required init?(coder: NSCoder) {
@@ -30,12 +29,17 @@ final class CurrencyLoadViewCell: CurrencyBaseViewCell {
     
     // MARK: - CurrencyBaseCell
     override func updateViews() {
-        guard cellModel is CurrencyLoadCellModel else { return }
+        guard model is CurrencyLoadCellModel else { return }
         
         activityIndicator.startAnimating()
     }
     
     // MARK: - Private (Interface)
+    private func setupView() {
+        addSubviews()
+        addLayouts()
+    }
+    
     private func addSubviews() {
         addSubview(activityIndicator)
     }
@@ -45,13 +49,13 @@ final class CurrencyLoadViewCell: CurrencyBaseViewCell {
                                  left: nil,
                                  bottom: bottomAnchor,
                                  right: nil,
-                                 paddingTop: 5,
-                                 paddingLeft: 0,
-                                 paddingBottom: 5,
-                                 paddingRight: 0,
-                                 width: 80,
-                                 height: 0,
+                                 paddingTop: 5.0,
+                                 paddingLeft: 0.0,
+                                 paddingBottom: 5.0,
+                                 paddingRight: 0.0,
+                                 width: 80.0,
+                                 height: 0.0,
                                  enableInsets: false)
-        activityIndicator.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        activityIndicator.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor).isActive = true
     }
 }

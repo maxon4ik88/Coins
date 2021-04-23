@@ -1,18 +1,19 @@
 //
-//  CurrencyMainViewCell.swift
+//  CurrencyHeaderView.swift
 //  Coins
 //
-//  Created by Maxim on 14.04.2021.
+//  Created by Maxon on 08.03.2021.
 //
 
 import UIKit
 
-final class CurrencyMainViewCell: CurrencyBaseViewCell {
+final class CurrencyHeaderView: UIView {
     
     // MARK: - Private (Properties)
     private lazy var nameLabel: UILabel = {
-       let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 14.0)
+        let label = UILabel()
+        label.text = "Currency"
+        label.font = .boldSystemFont(ofSize: 16.0)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -21,7 +22,8 @@ final class CurrencyMainViewCell: CurrencyBaseViewCell {
     
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14.0)
+        label.text = "Price"
+        label.font = .boldSystemFont(ofSize: 16.0)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -30,48 +32,22 @@ final class CurrencyMainViewCell: CurrencyBaseViewCell {
     
     private lazy var changesLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14.0)
-        label.textAlignment = .left
+        label.text = "Change"
+        label.font = .boldSystemFont(ofSize: 16.0)
+        label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
     }()
-
+    
     // MARK: - Init
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - CurrencyBaseCell
-    override func updateViews() {
-        guard let cellModel = model as? CurrencyMainCellModel else { return }
-        
-        let name = cellModel.name
-        let price = cellModel.price
-        let priceChanging = cellModel.changing
-        let spacesCount = name.filter({ $0 == " " }).count + 1
-        
-        nameLabel.text = name
-        nameLabel.numberOfLines = spacesCount
-        
-        priceLabel.text = price
-        
-        switch priceChanging {
-        case _ where priceChanging > 0.0:
-            changesLabel.text = "+\(priceChanging.rounded(to: 2))%"
-            changesLabel.textColor = .systemGreen
-        case _ where priceChanging < 0.0:
-            changesLabel.text = "\(priceChanging.rounded(to: 2))%"
-            changesLabel.textColor = .systemRed
-        default:
-            changesLabel.text = "\(priceChanging.rounded(to: 2))%"
-            changesLabel.textColor = .systemGray
-        }
     }
     
     // MARK: - Private (Interface)
@@ -95,7 +71,7 @@ final class CurrencyMainViewCell: CurrencyBaseViewCell {
                          paddingLeft: 10.0,
                          paddingBottom: 5.0,
                          paddingRight: 0.0,
-                         width: 110.0,
+                         width: 120.0,
                          height: 0.0,
                          enableInsets: false)
         
@@ -107,7 +83,7 @@ final class CurrencyMainViewCell: CurrencyBaseViewCell {
                           paddingLeft: 0.0,
                           paddingBottom: 5.0,
                           paddingRight: 0.0,
-                          width: 80.0,
+                          width: 90.0,
                           height: 0.0,
                           enableInsets: false)
         priceLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor).isActive = true
@@ -120,7 +96,7 @@ final class CurrencyMainViewCell: CurrencyBaseViewCell {
                             paddingLeft: 0.0,
                             paddingBottom: 5.0,
                             paddingRight: 10.0,
-                            width: 60.0,
+                            width: 70.0,
                             height: 0.0,
                             enableInsets: false)
     }

@@ -6,5 +6,5 @@
 //
 
 protocol ModelRepresentable {
-    var cellModel: CellIdentifiable? { get }
+    var model: CellIdentifiable? { get }
 }

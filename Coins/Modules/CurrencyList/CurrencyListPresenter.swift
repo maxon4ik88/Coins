@@ -2,30 +2,45 @@
 //  CurrencyListPresenter.swift
 //  Coins
 //
-//  Created by Maxim on 13.04.2021.
+//  Created by Maxim on 22.04.2021.
 //
 
 import Foundation
 
-final class CurrencyListPresenter: CurrencyListPresenterProtocol {
+final class CurrencyListPresenter: PresenterInterface {
     
     // MARK: - Public (Properties)
-    weak var view: CurrencyListViewProtocol!
-    var interactor: CurrencyListInteractorProtocol!
+    var interactor: CurrencyListInteractorPresenterInterface!
+    weak var view: CurrencyListViewController!
     
-    // MARK: - Init
-    required init(view: CurrencyListViewProtocol) {
-        self.view = view
+    // MARK: - Private (Properties)
+    private let counter = CurrencyListCounter.shared
+    
+}
+
+// MARK: - CurrencyListPresenterViewInterface
+extension CurrencyListPresenter: CurrencyListPresenterViewInterface {
+    func handleOnAppear() {
+        counter.taskType = .appear
+        interactor.loadCurrencies()
     }
     
-    // MARK: - CurrencyListPresenterProtocol
-    func completeLoading(in taskType: CurrencyService.TaskType) {
-        interactor.loadCurrencies(with: taskType)
+    func updateAllCurrencies() {
+        counter.taskType = .update
+        interactor.loadCurrencies()
     }
     
-    func updateViewData(with currencyArray: [Currency]) {
-        DispatchQueue.main.async {
-            self.view.getCurrencies(currencies: currencyArray)
+    func loadNewCurrencies() {
+        counter.taskType = .scroll
+        interactor.loadCurrencies()
+    }
+}
+
+// MARK: - CurrencyListPresenterInteractorInterface
+extension CurrencyListPresenter: CurrencyListPresenterInteractorInterface {
+    func update(currencies: [Currency]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.view.updateTableView(with: currencies, after: (self?.counter.taskType)!)
         }
     }
 }

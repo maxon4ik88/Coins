@@ -6,5 +6,5 @@
 //
 
 protocol CurrencyListViewProtocol: class {
-    func getCurrencies(currencies: [Currency])
+    func updateTableView(with currencies: [Currency], after taskType: CurrencyService.TaskType)
 }

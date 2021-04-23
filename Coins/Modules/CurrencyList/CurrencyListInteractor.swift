@@ -2,34 +2,29 @@
 //  CurrencyListInteractor.swift
 //  Coins
 //
-//  Created by Maxim on 13.04.2021.
+//  Created by Maxim on 22.04.2021.
 //
 
-final class CurrencyListInteractor: CurrencyListInteractorProtocol {
+final class CurrencyListInteractor: InteractorInterface {
     
     // MARK: - Public (Properties)
-    weak var presenter: CurrencyListPresenterProtocol!
+    weak var presenter: CurrencyListPresenterInteractorInterface!
     
     // MARK: - Private (Properties)
-    private var currencyService = CurrencyService()
-    
-    // MARK: - Init
-    required init(presenter: CurrencyListPresenterProtocol) {
-        self.presenter = presenter
-        currencyService.receiver = self
-    }
-    
-    // MARK: - CurrencyListInteractorProtocol
-    func loadCurrencies(with taskType: CurrencyService.TaskType) {
-        currencyService.beginRequest(with: taskType)
+    private let currencyService = CurrencyService()
+}
+
+// MARK: - CurrencyListInteractorPresentorInterface
+extension CurrencyListInteractor: CurrencyListInteractorPresenterInterface {
+    func loadCurrencies() {
+        currencyService.delegate = self
+        currencyService.fetchCurrencies()
     }
 }
 
 // MARK: - CurrencyServiceDelegate
-extension CurrencyListInteractor: DataReceiverInterface {
-    func startTask(_ fromService: NetworkService, with data: Any) {
-        guard let currencies = data as? [Currency] else { return }
-        
-        presenter.updateViewData(with: currencies)
+extension CurrencyListInteractor: CurrencyServiceDelegate {
+    func requestCompleted(fromService: NetworkService, with currencies: [Currency]) {
+        presenter.update(currencies: currencies)
     }
 }

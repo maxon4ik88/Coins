@@ -39,6 +39,7 @@ extension EndPoint: RestEndPointType {
             return .get
         }
     }
+    
     var scheme: String { "https" }
     var host: String { "pro-api.coinmarketcap.com" }
     var path: String { commonPath + endPointPath }
